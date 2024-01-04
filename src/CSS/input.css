@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Nunito Sans", sans-serif;
+  }
+}
+
+@layer components {
+  #cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    @apply grid items-stretch gap-20 p-10;
+  }
+
+  .card {
+    @apply flex h-full min-w-fit flex-col justify-between overflow-hidden rounded bg-white shadow-xl dark:bg-blue;
+  }
+
+  .card h3 {
+    @apply text-5xl font-extrabold;
+  }
+
+  .card > div {
+    @apply p-5 pb-10;
+  }
+
+  .card h3 {
+    @apply py-3 text-xl font-extrabold;
+  }
+
+  .card p {
+    @apply font-extrabold;
+  }
+
+  .card p span {
+    @apply font-normal;
+  }
+}

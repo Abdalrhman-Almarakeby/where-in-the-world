@@ -1,12 +1,12 @@
 function filterByRegion(countries, region) {
-  return countries?.filter((country) => {
+  return countries.filter((country) => {
     const searchRegion = region ?? "All";
     return searchRegion === "All" || country.region === searchRegion;
   });
 }
 
 function filterBySearchTerm(countries, term) {
-  const search = term?.toLowerCase() ?? "";
+  const search = term.toLowerCase() ?? "";
 
   return countries?.filter((country) => {
     return (
@@ -21,6 +21,7 @@ export default function filterCountries(countries, filters) {
   const { region, search } = filters;
 
   let filtered = countries;
+  filtered = filtered.filter((country) => country.name.common !== "Israel");
   filtered = filterByRegion(filtered, region);
   filtered = filterBySearchTerm(filtered, search);
 

@@ -1,8 +1,8 @@
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-t-blue p-4 text-center dark:border-t-white dark:bg-blue dark:text-white">
-      Made with ❤ by{" "}
+    <footer className="border-t border-t-blue px-4 py-2 text-center text-sm capitalize dark:border-t-white dark:bg-blue dark:text-white">
+      Made by{" "}
       <a
         target="_blank"
         href="https://www.youtube.com"
@@ -10,8 +10,9 @@ export default function Footer() {
         rel="noreferrer"
       >
         Abdalrhman Almarakeby
-      </a>{" "}
-      all right receive <>&copy;</> {year}.
+      </a>
+      <br />
+      All copy right receive <>&copy;</> {year}.
     </footer>
   );
 }

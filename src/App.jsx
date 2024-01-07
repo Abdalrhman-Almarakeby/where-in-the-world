@@ -9,7 +9,7 @@ import "./CSS/main.css";
 
 export default function App() {
   return (
-    <>
+    <div className="min-h-[100svh] flex flex-col">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -17,6 +17,6 @@ export default function App() {
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }

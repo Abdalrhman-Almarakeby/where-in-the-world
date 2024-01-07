@@ -6,10 +6,6 @@ import toKebabCase from "../utils/toKebabCase";
 export default function CountryCard({ country }) {
   const { name, flags, population, region, capital } = country;
 
-  //!!!!!!!!!!!!!!!!!!!!//
-  if (name.common === "Israel") return null;
-  //!!!!!!!!!!!!!!!!!!!!//
-
   return (
     <Link to={`/country/${toKebabCase(name.common)}`}>
       <div className="card" title={name.common}>

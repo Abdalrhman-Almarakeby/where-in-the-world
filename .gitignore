@@ -7,6 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Design files
+design
+style-guide.md
+
 node_modules
 dist
 dist-ssr

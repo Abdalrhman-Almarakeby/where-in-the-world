@@ -11,7 +11,10 @@ lerna-debug.log*
 design
 style-guide.md
 
+# Dependency directories
 node_modules
+
+# Build output
 dist
 dist-ssr
 *.local

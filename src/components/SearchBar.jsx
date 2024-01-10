@@ -6,6 +6,13 @@ export default function SearchBar(props) {
   const searchRef = useRef();
   const regions = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
+  function handleChange(e) {
+    props.setSearchTerm({
+      ...props.searchTerm,
+      [e.target.name]: e.target.value,
+    });
+  }
+
   return (
     <form className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
       <div
@@ -20,11 +27,11 @@ export default function SearchBar(props) {
           />
         </label>
         <input
+          autoComplete="off"
           ref={searchRef}
           value={props.searchTerm.search}
-          onChange={(e) =>
-            props.setSearchTerm({ ...props.searchTerm, search: e.target.value })
-          }
+          onChange={handleChange}
+          name="search"
           type="search"
           id="search-input"
           placeholder="Search for a country..."
@@ -38,9 +45,8 @@ export default function SearchBar(props) {
         <select
           id="region-filter"
           value={props.searchTerm.region}
-          onChange={(e) =>
-            props.setSearchTerm({ ...props.searchTerm, region: e.target.value })
-          }
+          onChange={handleChange}
+          name="region"
           className="rounded bg-white px-1 py-2 text-base shadow-none outline-none dark:bg-blue sm:px-2 md:py-4"
         >
           {regions.map((region) => (

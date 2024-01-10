@@ -4,7 +4,7 @@ export default function BackBtn() {
   return (
     <Link
       to="/"
-      className="w-fit space-x-3 rounded px-4 py-2 text-sm text-darkBlue shadow-lg dark:bg-blue dark:text-white"
+      className="flex w-fit items-center gap-4 rounded px-4 py-2 text-sm text-darkBlue shadow-lg dark:bg-blue dark:text-white sm:px-6"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ export default function BackBtn() {
           d="M244 400L100 256l144-144M120 256h292"
         />
       </svg>
-      <span>Back</span>
+      <span className="md:text-lg">Back</span>
     </Link>
   );
 }

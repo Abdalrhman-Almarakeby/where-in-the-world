@@ -11,7 +11,7 @@ export default function Header() {
       <div className="container flex items-center justify-between px-6 py-7">
         <Link
           to="/"
-          className="font-extrabold sm:text-sm md:text-lg lg:text-xl xl:text-2xl"
+          className="font-extrabold sm:text-xl md:text-lg lg:text-xl xl:text-2xl"
         >
           Where in the world?
         </Link>

@@ -1,7 +1,7 @@
 import PropType from "prop-types";
 import { Link } from "react-router-dom";
-import formatNumberWithCommas from "../utils/formatNumberWithCommas";
-import toKebabCase from "../utils/toKebabCase";
+import formatNumberWithCommas from "../../utils/formatNumberWithCommas";
+import toKebabCase from "../../utils/toKebabCase";
 
 export default function CountryCard({ country }) {
   const { name, flags, population, region, capital } = country;

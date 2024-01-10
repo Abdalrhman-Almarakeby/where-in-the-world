@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   html {
     font-family: "Nunito Sans", sans-serif;
+  }
+
+  img {
+    @apply  h-auto max-w-full select-none bg-cover bg-no-repeat align-middle italic;
   }
 }
 

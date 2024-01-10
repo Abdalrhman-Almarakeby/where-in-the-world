@@ -1,15 +1,15 @@
 import { useState } from "react";
-import useFetch from "../hooks/useFetch";
-import filterCountries from "../utils/filterCountries";
-import SearchBar from "../components/SearchBar";
-import CountryCard from "../components/CountryCard";
-import Loading from "../components/Loading";
-import NoCountriesFound from "../components/NoCountriesFound";
+import useFetch from "../../hooks/useFetch";
+import filterCountries from "../../utils/filterCountries";
+import SearchBar from "../../components/SearchBar";
+import CountryCard from "./CountryCard";
+import Loading from "../../components/Loading";
+import NoCountriesFound from "./NoCountriesFound";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState({ region: "All", search: "" });
   const { data, isPending, error } = useFetch(
-    "https://restcountries.com/v3.1/all"
+    "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,region,population"
   );
 
   const countries = data ? filterCountries(data, searchTerm) : null;

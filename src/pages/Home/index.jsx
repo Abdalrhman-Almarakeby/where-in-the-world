@@ -9,7 +9,7 @@ import NoCountriesFound from "./NoCountriesFound";
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState({ region: "All", search: "" });
   const { data, isPending, error } = useFetch(
-    "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,region,population"
+    "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,region,population,cca3"
   );
 
   const countries = data ? filterCountries(data, searchTerm) : null;

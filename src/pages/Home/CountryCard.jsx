@@ -8,24 +8,32 @@ export default function CountryCard({ country }) {
 
   return (
     <Link to={`/country/${toKebabCase(name.common)}`}>
-      <div className="card" title={name.common}>
+      <div
+        className="flex h-full min-w-fit flex-col justify-between overflow-hidden rounded bg-white shadow-xl dark:bg-blue"
+        title={name.common}
+      >
         <img
           src={flags.svg}
           alt={flags.alt || `${name.common} flag`}
           aria-label={`Flag of ${name.common}`}
           style={name.common === "Nepal" ? { width: "60%" } : {}}
         />
-        <div>
-          <h3 aria-label={`${name.common}`}>{name.common}</h3>
-          <p>
-            Population: <span>{formatNumberWithCommas(population)}</span>
+        <div className="p-5 pb-10">
+          <h3
+            className="py-3 text-xl font-extrabold"
+            aria-label={`${name.common}`}
+          >
+            {name.common}
+          </h3>
+          <p className="font-extrabold">
+            Population: <span className="font-normal">{formatNumberWithCommas(population)}</span>
           </p>
-          <p>
-            Region: <span>{region}</span>
+          <p className="font-extrabold">
+            Region: <span className="font-normal">{region}</span>
           </p>
-          <p>
+          <p className="font-extrabold">
             Capital:{" "}
-            <span>
+            <span className="font-normal">
               {name.common === "Palestine"
                 ? "Jerusalem"
                 : capital?.join(", ") || "No data"}

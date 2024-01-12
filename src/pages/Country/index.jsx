@@ -17,7 +17,7 @@ export default function Country() {
         {data && (
           <>
             <BackBtn />
-            <CountryDetails {...data[0]} />
+            <CountryDetails {...data} />
           </>
         )}
       </div>

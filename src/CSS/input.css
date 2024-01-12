@@ -5,6 +5,19 @@
 @layer base {
   * {
     -webkit-tap-highlight-color: transparent;
+    @apply selection-light dark:selection-dark;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-3;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-lightGray;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-md bg-blue hover:bg-darkBlue;
   }
 
   html {
@@ -12,7 +25,7 @@
   }
 
   img {
-    @apply  h-auto max-w-full select-none bg-cover bg-no-repeat align-middle italic;
+    @apply h-auto max-w-full select-none bg-cover bg-no-repeat align-middle italic;
   }
 }
 
@@ -21,28 +34,14 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     @apply grid items-stretch gap-20 p-10;
   }
+}
 
-  .card {
-    @apply flex h-full min-w-fit flex-col justify-between overflow-hidden rounded bg-white shadow-xl dark:bg-blue;
+@layer utilities {
+  .selection-light::selection {
+    @apply bg-veryDarkBlue text-lightGray;
   }
 
-  .card h3 {
-    @apply text-5xl font-extrabold;
-  }
-
-  .card > div {
-    @apply p-5 pb-10;
-  }
-
-  .card h3 {
-    @apply py-3 text-xl font-extrabold;
-  }
-
-  .card p {
-    @apply font-extrabold;
-  }
-
-  .card p span {
-    @apply font-normal;
+  .selection-dark::selection {
+    @apply bg-lightGray text-veryDarkBlue;
   }
 }

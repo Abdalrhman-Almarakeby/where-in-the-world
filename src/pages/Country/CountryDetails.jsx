@@ -18,29 +18,30 @@ export default function CountryDetails({
   tld,
   borders,
   flags,
+  maps,
 }) {
   return (
-    <div className="grid grid-cols-1 gap-10 lg:gap-16 lg:px-3 lg:py-16">
-      <h3 className="hidden text-5xl font-bold text-darkBlue dark:text-white lg:block">
+    <section className="grid grid-cols-1 gap-10 lg:gap-16 lg:px-3 lg:pb-14 lg:pt-20 xl:grid-cols-2 xl:gap-x-24 xl:gap-y-14 xl:px-6">
+      <h3 className="hidden text-5xl font-bold text-darkBlue dark:text-white lg:block xl:hidden">
         {name.common}
       </h3>
-      <div className="py-14 sm:px-16 md:px-40 lg:hidden lg:self-center lg:p-6">
+      <div className="py-14 sm:px-16 md:px-40 lg:hidden lg:self-center lg:p-6 2xl:row-span-2 xl:block xl:self-start xl:p-0">
         <img
           className="shadow-1 dark:shadow-none"
           src={flags.svg}
           alt={flags.alt || `${name.common} flag`}
         />
       </div>
-      <div className="grid gap-8 font-extrabold capitalize text-darkBlue dark:font-semibold dark:text-white sm:gap-10 sm:text-lg md:grid-cols-2 lg:grid-cols-3 lg:items-center lg:gap-16 lg:text-base">
-        <h3 className="text-[2.5rem] font-bold sm:text-5xl md:col-span-2 lg:hidden">
+      <div className="grid gap-8 font-extrabold capitalize text-darkBlue dark:font-semibold dark:text-white sm:gap-10 sm:text-lg md:grid-cols-2 lg:grid-cols-3 lg:items-start lg:gap-16 lg:text-base xl:grid-cols-2 xl:gap-10 xl:text-lg">
+        <h3 className="text-[2.5rem] font-bold sm:text-5xl md:col-span-2 lg:hidden xl:block">
           {name.common}
         </h3>
         <img
-          className="hidden shadow-1 dark:shadow-none lg:block"
+          className="hidden shadow-1 dark:shadow-none lg:block xl:hidden"
           src={flags.svg}
           alt={flags.alt || `${name.common} flag`}
         />
-        <div className="flex flex-col gap-2 tracking-wide lg:gap-4">
+        <div className="flex flex-col gap-2 tracking-wide  lg:gap-4">
           <p>
             {Object.keys(name.nativeName).length > 1
               ? "Native Names"
@@ -76,7 +77,7 @@ export default function CountryDetails({
         <div className="flex flex-col gap-2 tracking-wide lg:gap-4">
           {tld && (
             <p>
-              Top Level Domain:{" "}
+              Top Level Domain: maps
               <span className="font-normal dark:font-extralight">
                 {tld.join(", ")}
               </span>
@@ -95,16 +96,35 @@ export default function CountryDetails({
               {formatLanguages(languages)}
             </span>{" "}
           </p>
+
+          <a
+            className="underline font-normal"
+            href={`https://en.wikipedia.org/wiki/${name.common
+              .split(" ")
+              .join("_")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read more in Wikipedia
+          </a>
+          <a
+            className="underline font-normal"
+            href={maps.googleMaps}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View {name.common} on Google Maps
+          </a>
         </div>
       </div>
       {borders.length > 0 && <BorderCountries countries={borders} />}
-    </div>
+    </section>
   );
 }
 
 CountryDetails.propTypes = {
   name: PropType.shape({
-    common: PropType.string.isRequired,
+    common: PropType.string,
     nativeName: PropType.object,
   }).isRequired,
   region: PropType.string.isRequired,
@@ -118,5 +138,9 @@ CountryDetails.propTypes = {
   flags: PropType.shape({
     svg: PropType.string.isRequired,
     alt: PropType.string,
+  }).isRequired,
+  maps: PropType.shape({
+    googleMaps: PropType.string.isRequired,
+    openStreetMaps: PropType.string.isRequired,
   }).isRequired,
 };

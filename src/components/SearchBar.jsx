@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import searchIcon from "../assets/icons/search-lens.svg";
 
@@ -6,11 +6,31 @@ export default function SearchBar(props) {
   const searchRef = useRef();
   const regions = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (
+        ((e.code === "Slash" && e.ctrlKey) ||
+          (e.code === "KeyK" && e.ctrlKey)) &&
+        searchRef.current
+      ) {
+        e.preventDefault();
+        searchRef.current.focus();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   function handleChange(e) {
-    props.setSearchTerm({
-      ...props.searchTerm,
-      [e.target.name]: e.target.value,
-    });
+    props.setSearchParams(
+      (prev) => {
+        prev.set([e.target.name], e.target.value);
+        return prev;
+      },
+      { replace: true }
+    );
   }
 
   return (
@@ -29,9 +49,9 @@ export default function SearchBar(props) {
         <input
           autoComplete="off"
           ref={searchRef}
-          value={props.searchTerm.search}
+          value={props.searchParams.get("searchTerm")}
           onChange={handleChange}
-          name="search"
+          name="searchTerm"
           type="search"
           id="search-input"
           placeholder="Search for a country..."
@@ -44,7 +64,7 @@ export default function SearchBar(props) {
         </label>
         <select
           id="region-filter"
-          value={props.searchTerm.region}
+          value={props.searchParams.get("region")}
           onChange={handleChange}
           name="region"
           className="rounded bg-white px-1 py-2 text-base shadow-none outline-none dark:bg-blue sm:px-2 md:py-4"
@@ -65,9 +85,11 @@ export default function SearchBar(props) {
 }
 
 SearchBar.propTypes = {
-  searchTerm: PropTypes.shape({
-    search: PropTypes.string,
+  searchParams: PropTypes.shape({
+    searchTerm: PropTypes.string,
     region: PropTypes.string,
+    get: PropTypes.func,
+    set: PropTypes.func,
   }).isRequired,
-  setSearchTerm: PropTypes.func.isRequired,
+  setSearchParams: PropTypes.func.isRequired,
 };

@@ -39,7 +39,7 @@ export default {
   botswana: "BWA",
   "central-african-republic": "CAF",
   canada: "CAN",
-  "cocos-keeling-islands": "CCK",
+  "cocos-(keeling)-islands": "CCK",
   switzerland: "CHE",
   chile: "CHL",
   china: "CHN",

@@ -1,6 +1,7 @@
 {
   "name": "vite-project",
   "private": true,
+  "homepage": "https://abdalrhman-almarakeby.github.io/where-in-the-world",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

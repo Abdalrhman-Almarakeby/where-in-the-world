@@ -12,7 +12,6 @@ Project Description
 
 ### In Progress
 
-- [ ] useSearchParams  
 
 ### Done ✓
 
@@ -26,4 +25,5 @@ Project Description
 - [x] add map  
 - [x] improve the borders Link  
 - [x] Not render all cards  
+- [x] useSearchParams  
 

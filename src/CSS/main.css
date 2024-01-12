@@ -1256,10 +1256,6 @@ img {
     grid-column: span 2 / span 2;
   }
 
-  .xl\:row-span-2 {
-    grid-row: span 2 / span 2;
-  }
-
   .xl\:block {
     display: block;
   }

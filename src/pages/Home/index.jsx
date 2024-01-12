@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+// import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import filterCountries from "../../utils/filterCountries";
 import SearchBar from "../../components/SearchBar";
@@ -7,18 +8,24 @@ import Loading from "../../components/Loading";
 import NoCountriesFound from "./NoCountriesFound";
 
 export default function Home() {
-  const [searchTerm, setSearchTerm] = useState({ region: "All", search: "" });
+  const [searchParams, setSearchParams] = useSearchParams({
+    region: "All",
+    searchTerm: "",
+  });
   const { data, isPending, error } = useFetch(
     "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,region,population,cca3"
   );
 
-  const countries = data ? filterCountries(data, searchTerm) : null;
+  const countries = data ? filterCountries(data, searchParams) : null;
 
   return (
     <>
       <main className="flex-grow bg-lightGray px-5 py-10 text-darkBlue dark:bg-darkBlue dark:text-white">
         <div className="container">
-          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <SearchBar
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+          />
           {isPending && <Loading />}
           {error && <div>{error}</div>}
           {countries &&

@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 export default function BackBtn() {
+  const navigate = useNavigate();
+
   return (
-    <Link
-      to="/"
-      className="flex w-fit items-center gap-4 rounded px-4 py-2 text-sm text-darkBlue shadow-lg dark:bg-blue dark:text-white sm:px-6"
+    <button
+      onClick={() => navigate(-1)}
+      className="flex w-fit items-center gap-4 rounded px-4 py-2 text-sm text-darkBlue shadow-lg dark:bg-blue dark:text-white sm:px-6 focus-within:outline focus-within:outline-darkBlue dark:focus-within:outline-white"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -21,6 +23,6 @@ export default function BackBtn() {
         />
       </svg>
       <span className="md:text-lg">Back</span>
-    </Link>
+    </button>
   );
 }

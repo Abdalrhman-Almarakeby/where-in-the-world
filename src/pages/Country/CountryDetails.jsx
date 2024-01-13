@@ -98,7 +98,7 @@ export default function CountryDetails({
           </p>
 
           <a
-            className="underline font-normal"
+            className="underline font-normal focus-within:outline focus-within:outline-darkBlue dark:focus-within:outline-white outline-offset-8 outline-2 rounded"
             href={`https://en.wikipedia.org/wiki/${name.common
               .split(" ")
               .join("_")}`}
@@ -108,7 +108,7 @@ export default function CountryDetails({
             Read more in Wikipedia
           </a>
           <a
-            className="underline font-normal"
+            className="underline font-normal focus-within:outline focus-within:outline-darkBlue dark:focus-within:outline-white outline-offset-8 outline-2 rounded"
             href={maps.googleMaps}
             target="_blank"
             rel="noopener noreferrer"

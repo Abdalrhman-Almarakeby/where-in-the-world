@@ -7,10 +7,11 @@ export default function CountryCard({ country }) {
   const { name, flags, population, region, capital } = country;
 
   return (
-    <Link to={`/country/${toKebabCase(name.common)}`}>
+    <Link to={`/country/${toKebabCase(name.common)}`} className="focus:outline focus:outline-darkBlue outline-2 rounded dark:focus:outline-white ">
       <div
         className="flex h-full min-w-fit flex-col justify-between overflow-hidden rounded bg-white shadow-xl dark:bg-blue"
         title={name.common}
+        aria-label={`Country Card: ${name.common}`}
       >
         <img
           src={flags.svg}
@@ -21,7 +22,8 @@ export default function CountryCard({ country }) {
         <div className="p-5 pb-10">
           <h3
             className="py-3 text-xl font-extrabold"
-            aria-label={`${name.common}`}
+            aria-label={`Country Name: ${name.common}`}
+
           >
             {name.common}
           </h3>

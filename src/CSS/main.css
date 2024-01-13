@@ -1027,6 +1027,14 @@ img {
   outline-style: solid;
 }
 
+.outline-2 {
+  outline-width: 2px;
+}
+
+.outline-offset-8 {
+  outline-offset: 8px;
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1041,8 +1049,20 @@ img {
   outline-style: solid;
 }
 
+.focus-within\:outline-darkBlue:focus-within {
+  outline-color: hsl(207, 26%, 17%);
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
+}
+
+.focus\:outline:focus {
+  outline-style: solid;
+}
+
+.focus\:outline-darkBlue:focus {
+  outline-color: hsl(207, 26%, 17%);
 }
 
 :is(.dark .dark\:border-t-white) {
@@ -1087,6 +1107,14 @@ img {
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+:is(.dark .dark\:focus-within\:outline-white:focus-within) {
+  outline-color: #fff;
+}
+
+:is(.dark .dark\:focus\:outline-white:focus) {
+  outline-color: #fff;
 }
 
 @media (min-width: 640px) {

@@ -19,7 +19,7 @@ export default function BorderCountries({ countries }) {
           return (
             <Link
               to={`/country/${countryName}`}
-              className="rounded px-5 py-1 text-sm capitalize shadow-xl dark:bg-blue dark:shadow-lg sm:text-base"
+              className="rounded px-5 py-1 text-sm capitalize shadow-xl dark:bg-blue dark:shadow-lg sm:text-base focus-within:outline focus-within:outline-darkBlue dark:focus-within:outline-white "
               key={border}
             >
               {countryName}

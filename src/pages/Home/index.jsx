@@ -1,5 +1,4 @@
 import { useSearchParams } from "react-router-dom";
-// import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import filterCountries from "../../utils/filterCountries";
 import SearchBar from "../../components/SearchBar";

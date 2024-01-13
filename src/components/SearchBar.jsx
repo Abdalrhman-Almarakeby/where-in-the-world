@@ -67,7 +67,7 @@ export default function SearchBar(props) {
           value={props.searchParams.get("region")}
           onChange={handleChange}
           name="region"
-          className="rounded bg-white px-1 py-2 text-base shadow-none outline-none dark:bg-blue sm:px-2 md:py-4"
+          className="rounded bg-white px-1 py-2 text-base shadow-none outline-none dark:bg-blue sm:px-2 md:py-4 focus-within:outline focus-within:outline-darkBlue dark:focus-within:outline-white "
         >
           {regions.map((region) => (
             <option

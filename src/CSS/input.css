@@ -8,16 +8,27 @@
     @apply selection-light dark:selection-dark;
   }
 
-  ::-webkit-scrollbar {
-    @apply w-3;
+  :root {
+    --scrollbar-bg: #fafafa;
+    --scrollbar-thumb: #111517;
   }
 
-  ::-webkit-scrollbar-track {
-    @apply bg-lightGray;
+  .light {
+    --scrollbar-bg: #fafafa;
+    --scrollbar-thumb: #111517;
+  }
+
+  .dark {
+    --scrollbar-bg: #202c37;
+    --scrollbar-thumb: #858585;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-3 bg-[var(--scrollbar-bg)];
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-md bg-blue hover:bg-darkBlue;
+    @apply rounded  bg-[var(--scrollbar-thumb)];
   }
 
   html {

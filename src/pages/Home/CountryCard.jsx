@@ -3,11 +3,18 @@ import { Link } from "react-router-dom";
 import formatNumberWithCommas from "../../utils/formatNumberWithCommas";
 import toKebabCase from "../../utils/toKebabCase";
 
-export default function CountryCard({ country }) {
-  const { name, flags, population, region, capital } = country;
-
+export default function CountryCard({
+  name,
+  flags,
+  population,
+  region,
+  capital,
+}) {
   return (
-    <Link to={`/country/${toKebabCase(name.common)}`} className="focus:outline focus:outline-darkBlue outline-2 rounded dark:focus:outline-white ">
+    <Link
+      to={`/country/${toKebabCase(name.common)}`}
+      className="focus:outline focus:outline-darkBlue outline-2 rounded dark:focus:outline-white "
+    >
       <div
         className="flex h-full min-w-fit flex-col justify-between overflow-hidden rounded bg-white shadow-xl dark:bg-blue"
         title={name.common}
@@ -23,12 +30,14 @@ export default function CountryCard({ country }) {
           <h3
             className="py-3 text-xl font-extrabold"
             aria-label={`Country Name: ${name.common}`}
-
           >
             {name.common}
           </h3>
           <p className="font-extrabold">
-            Population: <span className="font-normal">{formatNumberWithCommas(population)}</span>
+            Population:{" "}
+            <span className="font-normal">
+              {formatNumberWithCommas(population)}
+            </span>
           </p>
           <p className="font-extrabold">
             Region: <span className="font-normal">{region}</span>
@@ -48,16 +57,14 @@ export default function CountryCard({ country }) {
 }
 
 CountryCard.propTypes = {
-  country: PropType.shape({
-    name: PropType.shape({
-      common: PropType.string.isRequired,
-    }).isRequired,
-    flags: PropType.shape({
-      svg: PropType.string.isRequired,
-      alt: PropType.string,
-    }).isRequired,
-    population: PropType.number.isRequired,
-    region: PropType.string.isRequired,
-    capital: PropType.arrayOf(PropType.string),
+  name: PropType.shape({
+    common: PropType.string.isRequired,
   }).isRequired,
+  flags: PropType.shape({
+    svg: PropType.string.isRequired,
+    alt: PropType.string,
+  }).isRequired,
+  population: PropType.number.isRequired,
+  region: PropType.string.isRequired,
+  capital: PropType.arrayOf(PropType.string),
 };

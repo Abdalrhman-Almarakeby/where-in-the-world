@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home/index";
 import Country from "./pages/Country/index";
 import Error from "./pages/Error";
+import Footer from "./components/Footer.jsx";
 
 import "./CSS/main.css";
 

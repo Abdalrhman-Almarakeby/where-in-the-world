@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
 export default function useDarkMode() {
-  const [darkMode, setDarkMode] = useState(() => {
+  const [darkMode, setDarkMode] = useState(darkModeInitValue());
+
+  function darkModeInitValue() {
     const jsonValue = window.localStorage.getItem("dark-mode");
     if (jsonValue != null) return JSON.parse(jsonValue);
 
@@ -9,14 +11,13 @@ export default function useDarkMode() {
       "(prefers-color-scheme: dark)"
     ).matches;
     return prefersDarkMode;
-  });
+  }
 
   useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
+    darkMode
+      ? document.body.classList.add("dark")
+      : document.body.classList.remove("dark");
+
     window.localStorage.setItem("dark-mode", JSON.stringify(darkMode));
   }, [darkMode]);
 

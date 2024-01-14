@@ -1,20 +1,21 @@
 import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import searchIcon from "../assets/icons/search-lens.svg";
+import SearchIcon from "../assets/icons/search-lens.svg?react";
 
-export default function SearchBar(props) {
+export default function SearchBar({ searchParams, setSearchParams }) {
   const searchRef = useRef();
-  const regions = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
+  const REGIONS = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   useEffect(() => {
     function handleKeyDown(e) {
       if (
         ((e.code === "Slash" && e.ctrlKey) ||
-          (e.code === "KeyK" && e.ctrlKey)) &&
+          (e.code === "KeyK" && e.ctrlKey) ||
+          (e.code === "KeyF" && e.ctrlKey)) &&
         searchRef.current
       ) {
         e.preventDefault();
-        searchRef.current.focus();
+        focusOnSearch();
       }
     }
 
@@ -23,8 +24,12 @@ export default function SearchBar(props) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  function focusOnSearch() {
+    searchRef.current.focus();
+  }
+
   function handleChange(e) {
-    props.setSearchParams(
+    setSearchParams(
       (prev) => {
         prev.set([e.target.name], e.target.value);
         return prev;
@@ -36,12 +41,11 @@ export default function SearchBar(props) {
   return (
     <form className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
       <div
-        onClick={() => searchRef.current.focus()}
+        onClick={focusOnSearch}
         className="flex w-96 max-w-full cursor-text items-center justify-start gap-2 rounded bg-white px-4 py-2 shadow-lg transition-[outline] focus-within:outline dark:bg-blue dark:text-white sm:px-6 sm:py-4"
       >
         <label htmlFor="search-input">
-          <img
-            src={searchIcon}
+          <SearchIcon
             alt="Search lens icon"
             className="w-5 cursor-text text-darkGray"
           />
@@ -49,7 +53,7 @@ export default function SearchBar(props) {
         <input
           autoComplete="off"
           ref={searchRef}
-          value={props.searchParams.get("searchTerm")}
+          value={searchParams.get("searchTerm")}
           onChange={handleChange}
           name="searchTerm"
           type="search"
@@ -64,12 +68,12 @@ export default function SearchBar(props) {
         </label>
         <select
           id="region-filter"
-          value={props.searchParams.get("region")}
+          value={searchParams.get("region")}
           onChange={handleChange}
           name="region"
-          className="rounded bg-white px-1 py-2 text-base shadow-none outline-none dark:bg-blue sm:px-2 md:py-4 focus-within:outline focus-within:outline-darkBlue dark:focus-within:outline-white "
+          className="rounded bg-white px-1 py-2 text-base shadow-none outline-none focus-visible:outline focus-visible:outline-darkBlue dark:bg-blue dark:focus-visible:outline-white sm:px-2 md:py-4"
         >
-          {regions.map((region) => (
+          {REGIONS.map((region) => (
             <option
               key={region}
               value={region}
@@ -88,8 +92,8 @@ SearchBar.propTypes = {
   searchParams: PropTypes.shape({
     searchTerm: PropTypes.string,
     region: PropTypes.string,
-    get: PropTypes.func,
-    set: PropTypes.func,
+    get: PropTypes.func.isRequired,
+    set: PropTypes.func.isRequired,
   }).isRequired,
   setSearchParams: PropTypes.func.isRequired,
 };

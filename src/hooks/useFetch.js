@@ -11,7 +11,6 @@ export default function useFetch(url, options) {
     fetch(url, { signal: abortCont.signal, ...options })
       .then((res) => {
         if (!res.ok) {
-          // error coming back from server
           throw Error("could not fetch the data for that resource");
         }
         return res.json();
@@ -24,12 +23,10 @@ export default function useFetch(url, options) {
       .catch((err) => {
         if (err.name === "AbortError") return;
 
-        // auto catches network / connection error
         setIsPending(false);
         setError(err.message);
       });
 
-    // abort the fetch
     return () => abortCont.abort();
   }, [url, options]);
 

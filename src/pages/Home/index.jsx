@@ -26,12 +26,14 @@ export default function Home() {
             setSearchParams={setSearchParams}
           />
           {isPending && <Loading />}
-          {error && <div>{error}</div>}
+          {error && (
+            <div className="dark:text-white text-darkBlue">{error}</div>
+          )}
           {countries &&
             (countries.length ? (
               <section id="cards-container">
                 {countries.map((country) => (
-                  <CountryCard key={country.name.common} country={country} />
+                  <CountryCard key={country.name.common} {...country} />
                 ))}
               </section>
             ) : (

@@ -20,6 +20,14 @@ export default function CountryDetails({
   flags,
   maps,
 }) {
+  const palestineCapital =
+    name.common === "Palestine" ? (
+      <p>
+        Capital:{" "}
+        <span className="font-normal dark:font-extralight">Jerusalem</span>
+      </p>
+    ) : null;
+
   return (
     <section className="grid grid-cols-1 gap-10 lg:gap-16 lg:px-3 lg:pb-14 lg:pt-20 xl:grid-cols-2 xl:gap-x-24 xl:gap-y-14 xl:px-6">
       <h3 className="hidden text-5xl font-bold text-darkBlue dark:text-white lg:block xl:hidden">
@@ -67,17 +75,21 @@ export default function CountryDetails({
               {subregion}
             </span>
           </p>
-          <p>
-            {Object.keys(capital).length > 1 ? "Capitals" : "Capital"}:{" "}
-            <span className="font-normal dark:font-extralight">
-              {capital.join(", ")}
-            </span>
-          </p>
+          {palestineCapital ? (
+            palestineCapital
+          ) : (
+            <p>
+              {Object.keys(capital).length > 1 ? "Capitals" : "Capital"}:{" "}
+              <span className="font-normal dark:font-extralight">
+                {capital.join(", ")}
+              </span>
+            </p>
+          )}
         </div>
         <div className="flex flex-col gap-2 tracking-wide lg:gap-4">
           {tld && (
             <p>
-              Top Level Domain: maps
+              {tld.length ? "Top Level Domains" : "Top Level Domain"}:{" "}
               <span className="font-normal dark:font-extralight">
                 {tld.join(", ")}
               </span>
@@ -98,7 +110,7 @@ export default function CountryDetails({
           </p>
 
           <a
-            className="underline font-normal focus-within:outline focus-within:outline-darkBlue dark:focus-within:outline-white outline-offset-8 outline-2 rounded"
+            className="underline font-normal focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white outline-offset-8 outline-2 rounded"
             href={`https://en.wikipedia.org/wiki/${name.common
               .split(" ")
               .join("_")}`}
@@ -108,7 +120,7 @@ export default function CountryDetails({
             Read more in Wikipedia
           </a>
           <a
-            className="underline font-normal focus-within:outline focus-within:outline-darkBlue dark:focus-within:outline-white outline-offset-8 outline-2 rounded"
+            className="underline font-normal focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white outline-offset-8 outline-2 rounded"
             href={maps.googleMaps}
             target="_blank"
             rel="noopener noreferrer"

@@ -29,6 +29,18 @@ This project was created as a solution to the [REST Countries API with color the
 - Switch between dark and light theme
 - Displays error messages to the user for invalid data
 
+## Accessibility
+
+This project aims to be accessible to all users. Some key features:
+
+- Semantic HTML provides meaning and structure
+- Color contrast meets WCAG 2.1 AA standards
+- Images have alternate text
+- Forms include labels and instructions
+- Focus is visible for keyboard navigation
+- Headings use proper hierarchy
+- ARIA roles used for additional meaning
+
 ## Built With
 
 - [React](https://reactjs.org/)

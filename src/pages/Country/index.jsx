@@ -13,7 +13,7 @@ export default function Country() {
     <section className="flex flex-grow flex-col px-6 py-10 dark:bg-darkBlue">
       <div className="container">
         {isPending && <Loading />}
-        {error && <div>{error}</div>}
+        {error && <div className="dark:text-white text-darkBlue">{error}</div>}
         {data && (
           <>
             <BackBtn />

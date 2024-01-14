@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import countriesCode from "../../utils/countriesCode";
 
 export default function BorderCountries({ countries }) {
+
+  if (countries.includes("ISR")) {
+    countries = countries.splice(countries.indexOf("ISR"), 1, "PSE");
+  }
   return (
     <div className="flex flex-col gap-4 capitalize text-darkBlue dark:font-semibold dark:text-white sm:gap-6 xl:col-span-2 2xl:col-span-1">
       <p className="flex flex-col text-xl font-extrabold dark:font-semibold sm:text-2xl">
@@ -10,8 +14,6 @@ export default function BorderCountries({ countries }) {
       </p>
       <div className="flex flex-wrap gap-4">
         {countries.map((border) => {
-          if (border === "ISR") return null;
-
           const countryName = Object.keys(countriesCode).find(
             (key) => countriesCode[key] === border
           );
@@ -19,7 +21,7 @@ export default function BorderCountries({ countries }) {
           return (
             <Link
               to={`/country/${countryName}`}
-              className="rounded px-5 py-1 text-sm capitalize shadow-xl dark:bg-blue dark:shadow-lg sm:text-base focus-within:outline focus-within:outline-darkBlue dark:focus-within:outline-white "
+              className="rounded px-5 py-1 text-sm capitalize shadow-xl dark:bg-blue dark:shadow-lg sm:text-base focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white "
               key={border}
             >
               {countryName}

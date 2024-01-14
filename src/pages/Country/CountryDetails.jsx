@@ -33,7 +33,7 @@ export default function CountryDetails({
       <h3 className="hidden text-5xl font-bold text-darkBlue dark:text-white lg:block xl:hidden">
         {name.common}
       </h3>
-      <div className="py-14 sm:px-16 md:px-40 lg:hidden lg:self-center lg:p-6 2xl:row-span-2 xl:block xl:self-start xl:p-0">
+      <div className="py-14 sm:px-16 md:px-40 lg:hidden lg:self-center lg:p-6 xl:block xl:self-start xl:p-0 2xl:row-span-2">
         <img
           className="shadow-1 dark:shadow-none"
           src={flags.svg}
@@ -49,7 +49,7 @@ export default function CountryDetails({
           src={flags.svg}
           alt={flags.alt || `${name.common} flag`}
         />
-        <div className="flex flex-col gap-2 tracking-wide  lg:gap-4">
+        <div className="flex flex-col gap-2 tracking-wide lg:gap-4">
           <p>
             {Object.keys(name.nativeName).length > 1
               ? "Native Names"
@@ -110,7 +110,7 @@ export default function CountryDetails({
           </p>
 
           <a
-            className="underline font-normal focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white outline-offset-8 outline-2 rounded"
+            className="rounded font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white"
             href={`https://en.wikipedia.org/wiki/${name.common
               .split(" ")
               .join("_")}`}
@@ -120,7 +120,7 @@ export default function CountryDetails({
             Read more in Wikipedia
           </a>
           <a
-            className="underline font-normal focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white outline-offset-8 outline-2 rounded"
+            className="rounded font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white"
             href={maps.googleMaps}
             target="_blank"
             rel="noopener noreferrer"

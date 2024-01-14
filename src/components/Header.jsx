@@ -13,13 +13,13 @@ export default function Header() {
           to="/"
           className="rounded font-extrabold outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white sm:text-xl md:text-lg lg:text-xl xl:text-2xl"
         >
-          Where in the world?
+          <h1>Where in the world?</h1>
         </Link>
         <button
-          aria-label="dark mode toggle"
+          aria-label={enabled ? "Light mode toggle" : "Dark mode toggle"}
           role="switch"
           aria-checked={enabled}
-          onClick={() => setDarkMode(!enabled)}
+          onClick={() => setDarkMode((prev) => !prev)}
           className="flex items-center gap-1 rounded text-xs outline-none outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white md:gap-3 md:text-sm"
         >
           {enabled ? (

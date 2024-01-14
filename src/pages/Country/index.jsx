@@ -10,10 +10,10 @@ export default function Country() {
   const { data, isPending, error } = useFetch(getUrl(name));
 
   return (
-    <section className="flex flex-grow flex-col px-6 py-10 dark:bg-darkBlue">
+    <main className="flex flex-grow flex-col px-6 py-10 dark:bg-darkBlue">
       <div className="container">
         {isPending && <Loading />}
-        {error && <div className="dark:text-white text-darkBlue">{error}</div>}
+        {error && <div className="text-darkBlue dark:text-white">{error}</div>}
         {data && (
           <>
             <BackBtn />
@@ -21,6 +21,6 @@ export default function Country() {
           </>
         )}
       </div>
-    </section>
+    </main>
   );
 }

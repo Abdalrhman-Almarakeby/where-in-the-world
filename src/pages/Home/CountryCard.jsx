@@ -13,7 +13,7 @@ export default function CountryCard({
   return (
     <Link
       to={`/country/${toKebabCase(name.common)}`}
-      className="focus:outline focus:outline-darkBlue outline-2 rounded dark:focus:outline-white "
+      className="rounded outline-2 focus:outline focus:outline-darkBlue dark:focus:outline-white"
     >
       <div
         className="flex h-full min-w-fit flex-col justify-between overflow-hidden rounded bg-white shadow-xl dark:bg-blue"
@@ -21,6 +21,7 @@ export default function CountryCard({
         aria-label={`Country Card: ${name.common}`}
       >
         <img
+          loading="lazy"
           src={flags.svg}
           alt={flags.alt || `${name.common} flag`}
           aria-label={`Flag of ${name.common}`}

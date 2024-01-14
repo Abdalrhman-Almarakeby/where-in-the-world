@@ -27,14 +27,13 @@ This project was created as a solution to the [REST Countries API with color the
 - View detailed information about each country
 - Responsive design works on mobile, tablet, and desktop screens
 - Switch between dark and light theme
-- Displays error messages to the user for invalid data
 
 ## Accessibility
 
 This project aims to be accessible to all users. Some key features:
 
 - Semantic HTML provides meaning and structure
-- Color contrast meets WCAG 2.1 AA standards
+- Color contrast meets WCAG 2.1 AAA standards
 - Images have alternate text
 - Forms include labels and instructions
 - Focus is visible for keyboard navigation
@@ -52,7 +51,12 @@ This project aims to be accessible to all users. Some key features:
 
 This project uses the [REST Countries API](https://restcountries.com/) to fetch country data.
 
-The API is free to use and does not require authentication. Rate limiting is applied to prevent abuse.
+The API is free to use and does not require authentication.
+
+The following endpoints were used:
+
+- All - `https://restcountries.com/v2/all`
+- Cca3 Code - `https://restcountries.com/v3.1/alpha/{code}`
 
 ## Running Locally
 

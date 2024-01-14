@@ -2,7 +2,11 @@ import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import SearchIcon from "../assets/icons/search-lens.svg?react";
 
-export default function SearchBar({ searchParams, setSearchParams }) {
+export default function SearchBar({
+  searchParams,
+  setSearchParams,
+  handlePageChange,
+}) {
   const REGIONS = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
   const searchRef = useRef();
 
@@ -29,6 +33,7 @@ export default function SearchBar({ searchParams, setSearchParams }) {
   }
 
   function handleChange(e) {
+    handlePageChange(1);
     setSearchParams(
       (prev) => {
         prev.set([e.target.name], e.target.value);
@@ -96,4 +101,5 @@ SearchBar.propTypes = {
     set: PropTypes.func.isRequired,
   }).isRequired,
   setSearchParams: PropTypes.func.isRequired,
+  handlePageChange: PropTypes.func.isRequired,
 };

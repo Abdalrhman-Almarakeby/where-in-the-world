@@ -21,8 +21,8 @@ export default function filterCountries(countries, searchParams) {
 
   let filtered = countries;
   filtered = filtered.filter((country) => country.name.common !== "Israel");
-  filtered = filterByRegion(filtered, region);
-  filtered = filterBySearchTerm(filtered, searchTerm);
+  filtered = region ? filterByRegion(filtered, region) : filtered;
+  filtered = searchTerm ? filterBySearchTerm(filtered, searchTerm) : filtered;
 
   return filtered;
 }

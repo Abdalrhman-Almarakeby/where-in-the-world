@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import SearchIcon from "../assets/icons/search-lens.svg?react";
 
 export default function SearchBar({ searchParams, setSearchParams }) {
-  const searchRef = useRef();
   const REGIONS = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
+  const searchRef = useRef();
 
   useEffect(() => {
     function handleKeyDown(e) {
@@ -53,7 +53,7 @@ export default function SearchBar({ searchParams, setSearchParams }) {
         <input
           autoComplete="off"
           ref={searchRef}
-          value={searchParams.get("searchTerm")}
+          value={searchParams.get("searchTerm") || ""}
           onChange={handleChange}
           name="searchTerm"
           type="search"
@@ -68,7 +68,7 @@ export default function SearchBar({ searchParams, setSearchParams }) {
         </label>
         <select
           id="region-filter"
-          value={searchParams.get("region")}
+          value={searchParams.get("region") || "All"}
           onChange={handleChange}
           name="region"
           className="rounded bg-white px-1 py-2 text-base shadow-none outline-none focus-visible:outline focus-visible:outline-darkBlue dark:bg-blue dark:focus-visible:outline-white sm:px-2 md:py-4"

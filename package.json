@@ -11,7 +11,7 @@
     "deploy": "gh-pages -d dist",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "tailwind": "npx tailwindcss -i ./src/CSS/input.css -o ./src/CSS/main.css --watch"
+    "tailwindcss": "npx tailwindcss -i ./src/CSS/input.css -o ./src/CSS/main.css --watch"
   },
   "dependencies": {
     "prop-types": "^15.8.1",

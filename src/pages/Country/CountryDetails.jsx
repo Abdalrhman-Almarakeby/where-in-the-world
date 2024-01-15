@@ -28,6 +28,11 @@ export default function CountryDetails({
       </p>
     ) : null;
 
+  if (name.common === "Palestine") {
+    borders = borders.filter((border) => border !== "PSE");
+    borders = [...borders, "SYR", "LBN"];
+  }
+
   return (
     <section className="grid grid-cols-1 gap-10 lg:gap-16 lg:px-3 lg:pb-14 lg:pt-20 xl:grid-cols-2 xl:gap-x-24 xl:gap-y-14 xl:px-6">
       <h3 className="hidden text-5xl font-bold text-darkBlue dark:text-white lg:block xl:hidden">

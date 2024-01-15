@@ -1,39 +1,18 @@
-import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import ScrollToTop from "../../utils/scrollToTop";
 
 export default function Pagination({ nPages, currentPage, setSearchParams }) {
-  const [scrolledToTop, setScrolledToTop] = useState(false);
   const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
-
-  useEffect(() => {
-    function handleScroll() {
-      if (window.scrollY === 0) {
-        setScrolledToTop(true);
-      } else {
-        setScrolledToTop(false);
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   function handlePageChange(page) {
     ScrollToTop();
-
-    if (scrolledToTop) {
-      setSearchParams(
-        (prev) => {
-          prev.set("page", page);
-          return prev;
-        },
-        { replace: true }
-      );
-    }
+    setSearchParams(
+      (prev) => {
+        prev.set("page", page);
+        return prev;
+      },
+      { replace: true }
+    );
   }
 
   function getPaginationNumbers(numberOfPages) {
@@ -71,7 +50,7 @@ export default function Pagination({ nPages, currentPage, setSearchParams }) {
     } else {
       numbers.push(addButton(1));
 
-      if (currentPage > 3) numbers.push(addDots("1"));
+      if (currentPage > 3) numbers.push(addDots("A"));
 
       if (currentPage == numberOfPages)
         numbers.push(addButton(currentPage - 2));
@@ -86,7 +65,7 @@ export default function Pagination({ nPages, currentPage, setSearchParams }) {
 
       if (currentPage == 1) numbers.push(addButton(currentPage + 2));
 
-      if (currentPage < numberOfPages - 2) numbers.push(addDots("2"));
+      if (currentPage < numberOfPages - 2) numbers.push(addDots("B"));
     }
 
     numbers.push(addButton(numberOfPages));

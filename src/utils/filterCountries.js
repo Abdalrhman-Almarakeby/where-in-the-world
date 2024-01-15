@@ -10,7 +10,8 @@ function filterBySearchTerm(countries, term) {
 
   return countries?.filter(
     (country) =>
-      country.name.common?.toLowerCase().includes(search) ||
+      country.name?.common?.toLowerCase().includes(search) ||
+      country.name?.official?.toLowerCase().includes(search) ||
       country.capital?.toString().toLowerCase().includes(search)
   );
 }

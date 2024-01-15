@@ -116,6 +116,7 @@ export default function CountryDetails({
               .join("_")}`}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`Read more about ${name.common} on Wikipedia`}
           >
             Read more in Wikipedia
           </a>
@@ -124,6 +125,7 @@ export default function CountryDetails({
             href={maps.googleMaps}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`View ${name.common} on Google Maps`}
           >
             View {name.common} on Google Maps
           </a>

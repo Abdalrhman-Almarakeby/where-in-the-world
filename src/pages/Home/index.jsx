@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import filterCountries from "../../utils/filterCountries";
 import SearchBar from "../../components/SearchBar";
-import CountryCard from "./CountryCard";
 import Loading from "../../components/Loading";
+import CountryCard from "./CountryCard";
 import NoCountriesFound from "./NoCountriesFound";
 import Pagination from "./Pagination";
 
@@ -17,31 +17,46 @@ export default function Home() {
   const { data, isPending, error } = useFetch(
     "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,region,population,cca3"
   );
-  const [countriesPerPage] = useState(10);
 
-  const countries = data ? filterCountries(data, searchParams) : null;
+  const [countriesPerPage, setCountriesPerPage] = useState(10);
 
-  const currentPage = parseInt(searchParams.get("page")) || 1;
+  // handle the number of countries card per page
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 1024) {
+        setCountriesPerPage(10);
+      } else if (window.innerWidth >= 1024 && window.innerWidth < 1536) {
+        setCountriesPerPage(12);
+      } else {
+        setCountriesPerPage(15);
+      }
+    }
 
-  const indexOfLastRecord = currentPage * countriesPerPage;
-  const indexOfFirstRecord = indexOfLastRecord - countriesPerPage;
+    window.addEventListener("resize", handleResize);
 
-  const currentCountries = countries?.slice(
-    indexOfFirstRecord,
-    indexOfLastRecord
-  );
+    handleResize();
 
-  const nPages = Math.ceil(countries?.length / countriesPerPage);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  function handlePageChange(page) {
-    setSearchParams(
-      (prev) => {
-        prev.set("page", page);
-        return prev;
-      },
-      { replace: true }
+  // Get the data that will be shown (current countries , current page number , the number of all pages )
+  function getCountriesData(data) {
+    const countries = data ? filterCountries(data, searchParams) : null;
+    const currentPage = parseInt(searchParams.get("page")) || 1;
+
+    const indexOfLastRecord = currentPage * countriesPerPage;
+    const indexOfFirstRecord = indexOfLastRecord - countriesPerPage;
+
+    const currentCountries = countries?.slice(
+      indexOfFirstRecord,
+      indexOfLastRecord
     );
+
+    const nPages = Math.ceil(countries?.length / countriesPerPage);
+    return { currentCountries, currentPage, nPages };
   }
+
+  const { currentCountries, currentPage, nPages } = getCountriesData(data);
 
   return (
     <main className="flex-grow bg-lightGray px-5 py-10 text-darkBlue dark:bg-darkBlue dark:text-white">
@@ -49,7 +64,6 @@ export default function Home() {
         <SearchBar
           searchParams={searchParams}
           setSearchParams={setSearchParams}
-          handlePageChange={handlePageChange}
         />
         {isPending && <Loading />}
         {error && <div className="text-darkBlue dark:text-white">{error}</div>}
@@ -68,7 +82,7 @@ export default function Home() {
         <Pagination
           nPages={nPages}
           currentPage={currentPage}
-          onPageChange={handlePageChange}
+          setSearchParams={setSearchParams}
         />
       )}
     </main>

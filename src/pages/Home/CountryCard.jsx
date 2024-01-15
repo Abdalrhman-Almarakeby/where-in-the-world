@@ -28,22 +28,22 @@ export default function CountryCard({
           style={name.common === "Nepal" ? { width: "60%" } : {}}
         />
         <div className="p-5 pb-10">
-          <h3
-            className="py-3 text-xl font-extrabold"
+          <h2
+            className="py-3 text-xl font-bold"
             aria-label={`Country Name: ${name.common}`}
           >
             {name.common}
-          </h3>
-          <p className="font-extrabold">
+          </h2>
+          <p className="font-semibold">
             Population:{" "}
             <span className="font-normal">
               {formatNumberWithCommas(population)}
             </span>
           </p>
-          <p className="font-extrabold">
+          <p className="font-semibold">
             Region: <span className="font-normal">{region}</span>
           </p>
-          <p className="font-extrabold">
+          <p className="font-semibold">
             Capital:{" "}
             <span className="font-normal">
               {name.common === "Palestine"

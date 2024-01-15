@@ -32,7 +32,7 @@
   }
 
   html {
-    font-family: "Nunito Sans", sans-serif;
+    @apply font-sans;
   }
 
   img {
@@ -42,7 +42,7 @@
 
 @layer components {
   #cards-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
     @apply grid items-stretch gap-20 p-10;
   }
 }

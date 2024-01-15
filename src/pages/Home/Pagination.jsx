@@ -1,89 +1,125 @@
 import PropTypes from "prop-types";
 
-export default function Pagination({ nPages, currentPage, onPageChange }) {
+export default function Pagination({ nPages, currentPage, setSearchParams }) {
   const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
+
+  function handlePageChange(page) {
+    const preferReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion)"
+    ).matches;
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: preferReducedMotion ? "instant" : "smooth",
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset === 0) {
+        setSearchParams(
+          (prev) => {
+            prev.set("page", page);
+            return prev;
+          },
+          { replace: true }
+        );
+      }
+    });
+  }
 
   function getPaginationNumbers(numberOfPages) {
     function addButton(number) {
       return (
-        <li key={number}>
-          <button onClick={() => onPageChange(number)} className="page-link">
+        <li
+          key={number}
+          className={`font-bold dark:font-normal px-2 py-1 rounded ${
+            number === currentPage
+              ? "bg-blue text-white  dark:bg-white font-extrabold  dark:text-veryDarkBlue"
+              : ""
+          }`}
+        >
+          <button
+            role="link"
+            aria-label={`Go to page number ${number} of countries`}
+            onClick={() => handlePageChange(number)}
+            className=""
+          >
             {number}
           </button>
         </li>
       );
     }
 
+    function addDots(key) {
+      return <li key={key}>...</li>;
+    }
+
     let numbers = [];
     if (numberOfPages <= 6) {
-      for (let i = 0; i < numberOfPages; i++) {
-        numbers.push(addButton(i + 1));
+      for (let i = 1; i < numberOfPages; i++) {
+        numbers.push(addButton(i));
       }
     } else {
       numbers.push(addButton(1));
 
-      if (currentPage > 3) {
-        console.log(1);
-        numbers.push(<span>...</span>);
-      }
+      if (currentPage > 3) numbers.push(addDots("1"));
 
-      if (currentPage == numberOfPages) {
-        console.log(2);
+      if (currentPage == numberOfPages)
         numbers.push(addButton(currentPage - 2));
-      }
 
-      if (currentPage > 2) {
-        console.log(3);
-        numbers.push(addButton(currentPage - 1));
-      }
+      if (currentPage > 2) numbers.push(addButton(currentPage - 1));
 
-      if (currentPage != 1 && currentPage != numberOfPages) {
-        console.log(4);
-
+      if (currentPage != 1 && currentPage != numberOfPages)
         numbers.push(addButton(currentPage));
-      }
 
-      if (currentPage < numberOfPages - 1) {
-        console.log(5);
+      if (currentPage < numberOfPages - 1)
         numbers.push(addButton(currentPage + 1));
-      }
 
-      if (currentPage == 1) {
-        console.log(6);
-        numbers.push(addButton(currentPage + 2));
-      }
+      if (currentPage == 1) numbers.push(addButton(currentPage + 2));
 
-      if (currentPage < numberOfPages - 2) {
-        console.log(7);
-        numbers.push("...");
-      }
-
-      numbers.push(addButton(numberOfPages));
+      if (currentPage < numberOfPages - 2) numbers.push(addDots("2"));
     }
+
+    numbers.push(addButton(numberOfPages));
+
     return numbers;
   }
 
-  const goToNextPage = () => {
+  function goToNextPage() {
     if (currentPage !== nPages) {
-      onPageChange(currentPage + 1);
+      handlePageChange(currentPage + 1);
     }
-  };
-  const goToPrevPage = () => {
+  }
+
+  function goToPrevPage() {
     if (currentPage !== 1) {
-      onPageChange(currentPage - 1);
+      handlePageChange(currentPage - 1);
     }
-  };
-  console.log(getPaginationNumbers(pageNumbers));
+  }
+
   return (
-    <nav className="flex justify-evenly">
-      <button className="" onClick={goToPrevPage}>
+    <nav className="mt-10 flex items-center justify-between text-xs sm:justify-center sm:gap-10">
+      <button
+        aria-label="Go to previous page of countries"
+        role="link"
+        className="rounded px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-darkGray disabled:font-light disabled:text-lightGray dark:font-bold"
+        onClick={goToPrevPage}
+        disabled={currentPage === 1}
+        aria-disabled={currentPage === 1}
+      >
         Previous
       </button>
-      <ul className="flex justify-center text-darkBlue dark:text-white">
+      <ul className="flex justify-center gap-2 text-darkBlue dark:text-white">
         {getPaginationNumbers(pageNumbers.pop())}
-        <li className="page-item"></li>
       </ul>
-      <button className="page-link" onClick={goToNextPage}>
+      <button
+        aria-label="Go to next page"
+        role="link"
+        className="rounded px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-darkGray disabled:font-light disabled:text-lightGray dark:font-bold"
+        onClick={goToNextPage}
+        disabled={currentPage === nPages}
+        aria-disabled={currentPage === nPages}
+      >
         Next
       </button>
     </nav>
@@ -93,5 +129,5 @@ export default function Pagination({ nPages, currentPage, onPageChange }) {
 Pagination.propTypes = {
   nPages: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
-  onPageChange: PropTypes.func.isRequired,
+  setSearchParams: PropTypes.func.isRequired,
 };

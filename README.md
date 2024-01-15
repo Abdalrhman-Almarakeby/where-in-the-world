@@ -84,7 +84,7 @@ npm install
 npm run dev
 ```
 
-1.  Open [http://localhost:5173/](http://localhost:5173/) in your browser
+1.  Open [http://localhost:3000/where-in-the-world](http://localhost:3000/where-in-the-world) in your browser
 
 ## Live Demo
 

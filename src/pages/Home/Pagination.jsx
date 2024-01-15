@@ -1,30 +1,39 @@
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import ScrollToTop from "../../utils/scrollToTop";
 
 export default function Pagination({ nPages, currentPage, setSearchParams }) {
+  const [scrolledToTop, setScrolledToTop] = useState(false);
   const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
 
-  function handlePageChange(page) {
-    const preferReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion)"
-    ).matches;
-
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: preferReducedMotion ? "instant" : "smooth",
-    });
-
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset === 0) {
-        setSearchParams(
-          (prev) => {
-            prev.set("page", page);
-            return prev;
-          },
-          { replace: true }
-        );
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY === 0) {
+        setScrolledToTop(true);
+      } else {
+        setScrolledToTop(false);
       }
-    });
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  function handlePageChange(page) {
+    ScrollToTop();
+
+    if (scrolledToTop) {
+      setSearchParams(
+        (prev) => {
+          prev.set("page", page);
+          return prev;
+        },
+        { replace: true }
+      );
+    }
   }
 
   function getPaginationNumbers(numberOfPages) {

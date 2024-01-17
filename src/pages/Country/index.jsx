@@ -6,6 +6,8 @@ import getUrl from "../../utils/getUrl";
 import Loading from "../../components/Loading";
 import BackBtn from "./BackBtn";
 import CountryDetails from "./CountryDetails";
+import countriesCode from "../../utils/countriesCode.js";
+import Error from "../Error.jsx";
 
 export default function Country() {
   const { name } = useParams();
@@ -15,7 +17,7 @@ export default function Country() {
     ScrollToTop();
   }, [name]);
 
-  return (
+  return countriesCode[name] ? (
     <main className="flex flex-grow flex-col px-6 py-10 dark:bg-darkBlue">
       <div className="container">
         {isPending && <Loading />}
@@ -28,5 +30,7 @@ export default function Country() {
         )}
       </div>
     </main>
+  ) : (
+    <Error />
   );
 }

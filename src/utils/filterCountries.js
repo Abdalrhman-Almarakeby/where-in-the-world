@@ -6,7 +6,7 @@ function filterByRegion(countries, region) {
 }
 
 function filterBySearchTerm(countries, term) {
-  const search = term.toLowerCase() ?? "";
+  const search = term.trim().toLowerCase() ?? "";
 
   return countries?.filter(
     (country) =>

@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
-import ScrollToTop from "../../utils/scrollToTop";
+import scrollToTop from "../../utils/scrollToTop";
 
 export default function Pagination({ nPages, currentPage, setSearchParams }) {
   const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
 
   function handlePageChange(page) {
-    ScrollToTop();
+    scrollToTop();
     setSearchParams(
       (prev) => {
         prev.set("page", page);
@@ -86,7 +86,10 @@ export default function Pagination({ nPages, currentPage, setSearchParams }) {
   }
 
   return (
-    <nav className="mt-10 flex items-center justify-between text-xs sm:justify-center sm:gap-10">
+    <nav
+      aria-label="Pagination"
+      className="mt-10 flex items-center justify-between text-xs sm:justify-center sm:gap-10"
+    >
       <button
         aria-label="Go to previous page of countries"
         role="link"

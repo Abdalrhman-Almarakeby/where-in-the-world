@@ -27,7 +27,7 @@ export default function Header() {
           {enabled ? (
             <SunIcon alt="Sun icon" className="w-3 md:w-4" />
           ) : (
-            <MoonIcon alt={"Moon icon"} className="w-3 md:w-4" />
+            <MoonIcon alt="Moon icon" className="w-3 md:w-4" />
           )}
           <span>{enabled ? "Light Mode" : "Dark Mode"}</span>
         </button>

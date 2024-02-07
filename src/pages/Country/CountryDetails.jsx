@@ -34,7 +34,7 @@ export default function CountryDetails({
   }
 
   return (
-    <section className="grid grid-cols-1 gap-10 lg:gap-16 lg:px-3 lg:pb-14 lg:pt-20 xl:grid-cols-2 xl:gap-x-24 xl:gap-y-14 xl:px-6">
+    <main className="grid grid-cols-1 gap-10 lg:gap-16 lg:px-3 lg:pb-14 lg:pt-20 xl:grid-cols-2 xl:gap-x-24 xl:gap-y-14 xl:px-6">
       <h3 className="hidden text-5xl font-bold text-darkBlue dark:text-white lg:block xl:hidden">
         {name.common}
       </h3>
@@ -45,7 +45,7 @@ export default function CountryDetails({
           alt={flags.alt || `${name.common} flag`}
         />
       </div>
-      <div className="grid gap-8 font-extrabold capitalize text-darkBlue dark:font-semibold dark:text-white sm:gap-10 sm:text-lg md:grid-cols-2 lg:grid-cols-3 lg:items-start lg:gap-16 lg:text-base xl:grid-cols-2 xl:gap-10 xl:text-lg">
+      <section className="grid gap-8 font-extrabold capitalize text-darkBlue dark:font-semibold dark:text-white sm:gap-10 sm:text-lg md:grid-cols-2 lg:grid-cols-3 lg:items-start lg:gap-16 lg:text-base xl:grid-cols-2 xl:gap-10 xl:text-lg">
         <h3 className="text-[2.5rem] font-bold sm:text-5xl md:col-span-2 lg:hidden xl:block">
           {name.common}
         </h3>
@@ -135,9 +135,9 @@ export default function CountryDetails({
             View {name.common} on Google Maps
           </a>
         </div>
-      </div>
+      </section>
       {borders.length > 0 && <BorderCountries countries={borders} />}
-    </section>
+    </main>
   );
 }
 

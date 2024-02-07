@@ -60,6 +60,7 @@ export default function SearchBar({ searchParams, setSearchParams }) {
           type="search"
           id="search-input"
           placeholder="Search for a country..."
+          aria-label="Search input"
           className="max-w-full grow bg-inherit font-semibold outline-none"
         />
       </div>
@@ -72,6 +73,7 @@ export default function SearchBar({ searchParams, setSearchParams }) {
           value={searchParams.get("region") || "All"}
           onChange={handleChange}
           name="region"
+          aria-label="Region filter"
           className="rounded bg-white px-1 py-2 text-base shadow-none outline-none focus-visible:outline focus-visible:outline-darkBlue dark:bg-blue dark:focus-visible:outline-white sm:px-2 md:py-4"
         >
           {REGIONS.map((region) => (

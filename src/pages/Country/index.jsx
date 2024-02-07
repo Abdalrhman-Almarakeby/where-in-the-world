@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
-import ScrollToTop from "../../utils/scrollToTop";
+import scrollToTop from "../../utils/scrollToTop";
 import getUrl from "../../utils/getUrl";
 import Loading from "../../components/Loading";
 import BackBtn from "./BackBtn";
@@ -14,7 +14,7 @@ export default function Country() {
   const { data, isPending, error } = useFetch(getUrl(name));
 
   useEffect(() => {
-    ScrollToTop();
+    scrollToTop();
   }, [name]);
 
   return countriesCode[name] ? (

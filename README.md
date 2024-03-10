@@ -14,8 +14,8 @@ This project was created as a solution to the [REST Countries API with color the
   - Region
   - Capital
   - Top Level Domain
-  - Currencies
-  - Languages
+  - Currency
+  - Language
   - Border Countries
 - Filter countries by region
 - Dark/Light mode toggle
@@ -26,7 +26,6 @@ This project was created as a solution to the [REST Countries API with color the
 - Filter countries by region
 - View detailed information about each country
 - Responsive design works on mobile, tablet, and desktop screens
-- Switch between dark and light theme
 
 ## Accessibility
 
@@ -66,7 +65,7 @@ The following endpoints were used:
 git clone https://github.com/abdalrhman-almarakeby/where-in-the-world.git
 ```
 
-1.  Navigate to the project directory
+2.  Navigate to the project directory
 
 ```
 cd where-in-the-world
@@ -78,13 +77,13 @@ cd where-in-the-world
 npm install
 ```
 
-1.  Start local dev server
+4.  Start local dev server
 
 ```
 npm run dev
 ```
 
-1.  Open [http://localhost:3000/where-in-the-world](http://localhost:3000/where-in-the-world) in your browser
+2.  Open http://localhost:3000/where-in-the-world](http://localhost:3000/where-in-the-world) in your browser
 
 ## Live Demo
 

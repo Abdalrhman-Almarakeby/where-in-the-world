@@ -7,6 +7,7 @@ This project was created as a solution to the [REST Countries API with color the
 ## Overview
 
 - Browse a list of countries and search for specific countries
+- Filter countries by region
 - Click on a country to view detailed information including:
   - Flag
   - Name
@@ -17,7 +18,6 @@ This project was created as a solution to the [REST Countries API with color the
   - Currency
   - Language
   - Border Countries
-- Filter countries by region
 - Dark/Light mode toggle
 
 ## Key Features
@@ -29,7 +29,7 @@ This project was created as a solution to the [REST Countries API with color the
 
 ## Accessibility
 
-This project aims to be accessible to all users. Some key features:
+This project aims to be accessible to all users. Some accessibility features:
 
 - Semantic HTML provides meaning and structure
 - Color contrast meets WCAG 2.1 AA standards
@@ -55,7 +55,7 @@ The API is free to use and does not require authentication.
 The following endpoints were used:
 
 - All - `https://restcountries.com/v2/all`
-- Cca3 Code - `https://restcountries.com/v3.1/alpha/{code}`
+- CCCA3 Code - `https://restcountries.com/v3.1/alpha/{code}`
 
 ## Running Locally
 

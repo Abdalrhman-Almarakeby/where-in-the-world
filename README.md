@@ -6,7 +6,7 @@ This project was created as a solution to the [REST Countries API with color the
 
 ## Overview
 
-- Browse a list of countries and search for specific countries
+- Browse a list of countries and search for specific country by name or capital city
 - Filter countries by region
 - Click on a country to view detailed information including:
   - Flag
@@ -19,13 +19,6 @@ This project was created as a solution to the [REST Countries API with color the
   - Language
   - Border Countries
 - Dark/Light mode toggle
-
-## Key Features
-
-- Search countries by name or capital city
-- Filter countries by region
-- View detailed information about each country
-- Responsive design works on mobile, tablet, and desktop screens
 
 ## Accessibility
 

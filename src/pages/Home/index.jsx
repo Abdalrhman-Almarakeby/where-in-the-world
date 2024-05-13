@@ -15,7 +15,7 @@ export default function Home() {
     page: 1,
   });
   const { data, isPending, error } = useFetch(
-    "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,region,population,cca3"
+    "https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,region,population,cca3,cca2"
   );
 
   const [countriesPerPage, setCountriesPerPage] = useState(10);
@@ -47,10 +47,7 @@ export default function Home() {
     const indexOfLastRecord = currentPage * countriesPerPage;
     const indexOfFirstRecord = indexOfLastRecord - countriesPerPage;
 
-    const currentCountries = countries?.slice(
-      indexOfFirstRecord,
-      indexOfLastRecord
-    );
+    const currentCountries = countries?.slice(indexOfFirstRecord, indexOfLastRecord);
 
     const nPages = Math.ceil(countries?.length / countriesPerPage);
     return { currentCountries, currentPage, nPages };
@@ -61,10 +58,7 @@ export default function Home() {
   return (
     <main className="flex-grow bg-lightGray px-5 py-10 text-darkBlue dark:bg-darkBlue dark:text-white">
       <div className="container">
-        <SearchBar
-          searchParams={searchParams}
-          setSearchParams={setSearchParams}
-        />
+        <SearchBar searchParams={searchParams} setSearchParams={setSearchParams} />
         {isPending && <Loading />}
         {error && <div className="text-darkBlue dark:text-white">{error}</div>}
         {currentCountries &&
@@ -79,11 +73,7 @@ export default function Home() {
           ))}
       </div>
       {!isPending && nPages > 1 && (
-        <Pagination
-          nPages={nPages}
-          currentPage={currentPage}
-          setSearchParams={setSearchParams}
-        />
+        <Pagination nPages={nPages} currentPage={currentPage} setSearchParams={setSearchParams} />
       )}
     </main>
   );

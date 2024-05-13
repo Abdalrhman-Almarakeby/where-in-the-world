@@ -19,12 +19,12 @@ export default function CountryDetails({
   borders,
   flags,
   maps,
+  cca2,
 }) {
   const palestineCapital =
     name.common === "Palestine" ? (
       <p>
-        Capital:{" "}
-        <span className="font-normal dark:font-extralight">Jerusalem</span>
+        Capital: <span className="font-normal dark:font-extralight">Jerusalem</span>
       </p>
     ) : null;
 
@@ -41,7 +41,7 @@ export default function CountryDetails({
       <div className="py-14 sm:px-16 md:px-40 lg:hidden lg:self-center lg:p-6 xl:block xl:self-start xl:p-0 2xl:row-span-2">
         <img
           className="shadow-1 dark:shadow-none"
-          src={flags.svg}
+          src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${cca2}.svg`}
           alt={flags.alt || `${name.common} flag`}
         />
       </div>
@@ -51,15 +51,12 @@ export default function CountryDetails({
         </h3>
         <img
           className="hidden shadow-1 dark:shadow-none lg:block xl:hidden"
-          src={flags.svg}
+          src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${cca2}.svg`}
           alt={flags.alt || `${name.common} flag`}
         />
         <div className="flex flex-col gap-2 tracking-wide lg:gap-4">
           <p>
-            {Object.keys(name.nativeName).length > 1
-              ? "Native Names"
-              : "Native Name"}
-            :{" "}
+            {Object.keys(name.nativeName).length > 1 ? "Native Names" : "Native Name"}:{" "}
             <span className="font-normal dark:font-extralight">
               {formatNativeName(name.nativeName)}
             </span>
@@ -71,23 +68,17 @@ export default function CountryDetails({
             </span>
           </p>
           <p>
-            Region:{" "}
-            <span className="font-normal dark:font-extralight">{region}</span>
+            Region: <span className="font-normal dark:font-extralight">{region}</span>
           </p>
           <p>
-            Subregion:{" "}
-            <span className="font-normal dark:font-extralight">
-              {subregion}
-            </span>
+            Subregion: <span className="font-normal dark:font-extralight">{subregion}</span>
           </p>
           {palestineCapital ? (
             palestineCapital
           ) : (
             <p>
               {Object.keys(capital).length > 1 ? "Capitals" : "Capital"}:{" "}
-              <span className="font-normal dark:font-extralight">
-                {capital.join(", ")}
-              </span>
+              <span className="font-normal dark:font-extralight">{capital.join(", ")}</span>
             </p>
           )}
         </div>
@@ -95,30 +86,22 @@ export default function CountryDetails({
           {tld && (
             <p>
               {tld.length ? "Top Level Domains" : "Top Level Domain"}:{" "}
-              <span className="font-normal dark:font-extralight">
-                {tld.join(", ")}
-              </span>
+              <span className="font-normal dark:font-extralight">{tld.join(", ")}</span>
             </p>
           )}
 
           <p>
             {Object.keys(currencies).length > 1 ? "Currencies" : "Currency"}:{" "}
-            <span className="font-normal dark:font-extralight">
-              {formatCurrencies(currencies)}
-            </span>
+            <span className="font-normal dark:font-extralight">{formatCurrencies(currencies)}</span>
           </p>
           <p>
             {Object.keys(languages).length > 1 ? "Languages" : "Language"}:{" "}
-            <span className="font-normal dark:font-extralight">
-              {formatLanguages(languages)}
-            </span>{" "}
+            <span className="font-normal dark:font-extralight">{formatLanguages(languages)}</span>{" "}
           </p>
 
           <a
             className="rounded font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white"
-            href={`https://en.wikipedia.org/wiki/${name.common
-              .split(" ")
-              .join("_")}`}
+            href={`https://en.wikipedia.org/wiki/${name.common.split(" ").join("_")}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Read more about ${name.common} on Wikipedia`}
@@ -162,4 +145,5 @@ CountryDetails.propTypes = {
     googleMaps: PropType.string.isRequired,
     openStreetMaps: PropType.string.isRequired,
   }).isRequired,
+  cca2: PropType.string.isRequired,
 };

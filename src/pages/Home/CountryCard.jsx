@@ -3,13 +3,7 @@ import { Link } from "react-router-dom";
 import formatNumberWithCommas from "../../utils/formatNumberWithCommas";
 import toKebabCase from "../../utils/toKebabCase";
 
-export default function CountryCard({
-  name,
-  flags,
-  population,
-  region,
-  capital,
-}) {
+export default function CountryCard({ name, population, flags, region, capital, cca2 }) {
   return (
     <Link
       to={`/country/${toKebabCase(name.common)}`}
@@ -19,23 +13,17 @@ export default function CountryCard({
     >
       <img
         loading="lazy"
-        src={flags.svg}
-        alt={`${name.common} flag`}
+        src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${cca2}.svg`}
+        alt={flags.alt || `${name.common} flag`}
         aria-label={`Flag of ${name.common}`}
-        style={name.common === "Nepal" ? { width: "60%" } : {}}
+        className="aspect-[3/2]"
       />
       <div className="p-5 pb-10">
-        <h2
-          className="py-3 text-xl font-bold"
-          aria-label={`Country Name: ${name.common}`}
-        >
+        <h2 className="py-3 text-xl font-bold" aria-label={`Country Name: ${name.common}`}>
           {name.common}
         </h2>
         <p className="font-semibold" id="country-population">
-          Population:{" "}
-          <span className="font-normal">
-            {formatNumberWithCommas(population)}
-          </span>
+          Population: <span className="font-normal">{formatNumberWithCommas(population)}</span>
         </p>
         <p className="font-semibold" id="country-region">
           Region: <span className="font-normal">{region}</span>
@@ -43,9 +31,7 @@ export default function CountryCard({
         <p className="font-semibold" id="country-capital">
           Capital:{" "}
           <span className="font-normal">
-            {name.common === "Palestine"
-              ? "Jerusalem"
-              : capital?.join(", ") || "No data"}
+            {name.common === "Palestine" ? "Jerusalem" : capital?.join(", ") || "No data"}
           </span>
         </p>
       </div>
@@ -64,4 +50,5 @@ CountryCard.propTypes = {
   population: PropTypes.number.isRequired,
   region: PropTypes.string.isRequired,
   capital: PropTypes.arrayOf(PropTypes.string),
+  cca2: PropTypes.string.isRequired,
 };

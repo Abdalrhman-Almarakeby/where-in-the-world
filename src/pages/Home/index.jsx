@@ -57,21 +57,24 @@ export default function Home() {
 
   return (
     <main className="flex-grow bg-lightGray px-5 py-10 text-darkBlue dark:bg-darkBlue dark:text-white">
-      <div className="container">
-        <SearchBar searchParams={searchParams} setSearchParams={setSearchParams} />
-        {isPending && <Loading />}
-        {error && <div className="text-darkBlue dark:text-white">{error}</div>}
-        {currentCountries &&
-          (currentCountries.length ? (
-            <section id="cards-container">
-              {currentCountries.map((country) => (
-                <CountryCard key={country.name.common} {...country} />
-              ))}
-            </section>
-          ) : (
-            <NoCountriesFound />
-          ))}
-      </div>
+      {isPending ? (
+        <Loading />
+      ) : (
+        <div className="container">
+          <SearchBar searchParams={searchParams} setSearchParams={setSearchParams} />
+          {error && <div className="text-darkBlue dark:text-white">{error}</div>}
+          {currentCountries &&
+            (currentCountries.length ? (
+              <section id="cards-container">
+                {currentCountries.map((country) => (
+                  <CountryCard key={country.name.common} {...country} />
+                ))}
+              </section>
+            ) : (
+              <NoCountriesFound />
+            ))}
+        </div>
+      )}
       {!isPending && nPages > 1 && (
         <Pagination nPages={nPages} currentPage={currentPage} setSearchParams={setSearchParams} />
       )}

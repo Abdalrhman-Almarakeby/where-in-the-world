@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import * as countries from "country-flag-icons/react/3x2";
 import formatNumberWithCommas from "../../utils/formatNumberWithCommas";
 import toKebabCase from "../../utils/toKebabCase";
 
 export default function CountryCard({ name, population, flags, region, capital, cca2 }) {
+  const Flag = countries[cca2];
   return (
     <Link
       to={`/country/${toKebabCase(name.common)}`}
@@ -11,9 +13,8 @@ export default function CountryCard({ name, population, flags, region, capital, 
       title={name.common}
       aria-label={`Country Card: ${name.common}`}
     >
-      <img
-        loading="lazy"
-        src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${cca2}.svg`}
+      <Flag
+        role="img"
         alt={flags.alt || `${name.common} flag`}
         aria-label={`Flag of ${name.common}`}
         className="aspect-[3/2]"

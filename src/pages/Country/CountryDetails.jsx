@@ -1,4 +1,5 @@
 import PropType from "prop-types";
+import * as countries from "country-flag-icons/react/3x2";
 import {
   formatCurrencies,
   formatLanguages,
@@ -33,15 +34,17 @@ export default function CountryDetails({
     borders = [...borders, "SYR", "LBN"];
   }
 
+  const Flag = countries[cca2];
+
   return (
     <main className="grid grid-cols-1 gap-10 lg:gap-16 lg:px-3 lg:pb-14 lg:pt-20 xl:grid-cols-2 xl:gap-x-24 xl:gap-y-14 xl:px-6">
       <h3 className="hidden text-5xl font-bold text-darkBlue dark:text-white lg:block xl:hidden">
         {name.common}
       </h3>
       <div className="py-14 sm:px-16 md:px-40 lg:hidden lg:self-center lg:p-6 xl:block xl:self-start xl:p-0 2xl:row-span-2">
-        <img
+        <Flag
+          role="img"
           className="shadow-1 dark:shadow-none"
-          src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${cca2}.svg`}
           alt={flags.alt || `${name.common} flag`}
         />
       </div>
@@ -49,9 +52,9 @@ export default function CountryDetails({
         <h3 className="text-[2.5rem] font-bold sm:text-5xl md:col-span-2 lg:hidden xl:block">
           {name.common}
         </h3>
-        <img
-          className="hidden shadow-1 dark:shadow-none lg:block xl:hidden"
-          src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${cca2}.svg`}
+        <Flag
+          role="img"
+          className="shadow-1 dark:shadow-none"
           alt={flags.alt || `${name.common} flag`}
         />
         <div className="flex flex-col gap-2 tracking-wide lg:gap-4">

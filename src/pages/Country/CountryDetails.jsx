@@ -54,7 +54,7 @@ export default function CountryDetails({
         </h3>
         <Flag
           role="img"
-          className="shadow-1 dark:shadow-none"
+          className="hidden shadow-1 dark:shadow-none lg:block xl:hidden"
           alt={flags.alt || `${name.common} flag`}
         />
         <div className="flex flex-col gap-2 tracking-wide lg:gap-4">

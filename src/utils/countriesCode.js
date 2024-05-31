@@ -1,4 +1,4 @@
-export default {
+export const countriesCode = {
   aruba: "ABW",
   afghanistan: "AFG",
   angola: "AGO",

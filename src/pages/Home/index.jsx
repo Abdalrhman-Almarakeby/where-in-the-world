@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
-import filterCountries from "../../utils/filterCountries";
-import SearchBar from "../../components/SearchBar";
-import Loading from "../../components/Loading";
-import CountryCard from "./CountryCard";
-import NoCountriesFound from "./NoCountriesFound";
-import Pagination from "./Pagination";
+import { useFetch } from "../../hooks/useFetch";
+import { filterCountries } from "../../utils/filterCountries";
+import { SearchBar } from "../../components/SearchBar";
+import { Loading } from "../../components/Loading";
+import { CountryCard } from "./CountryCard";
+import { NoCountriesFound } from "./NoCountriesFound";
+import { Pagination } from "./Pagination";
 
-export default function Home() {
+export function Home() {
   const [searchParams, setSearchParams] = useSearchParams({
     region: "All",
     searchTerm: "",

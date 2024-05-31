@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import SearchIcon from "../assets/icons/search-lens.svg?react";
 
-export default function SearchBar({ searchParams, setSearchParams }) {
+export function SearchBar({ searchParams, setSearchParams }) {
   const REGIONS = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
   const searchRef = useRef();
 
@@ -46,10 +46,7 @@ export default function SearchBar({ searchParams, setSearchParams }) {
         className="flex w-96 max-w-full cursor-text items-center justify-start gap-2 rounded bg-white px-4 py-2 shadow-lg transition-[outline] focus-within:outline dark:bg-blue dark:text-white sm:px-6 sm:py-4"
       >
         <label htmlFor="search-input">
-          <SearchIcon
-            alt="Search lens icon"
-            className="w-5 cursor-text text-darkGray"
-          />
+          <SearchIcon alt="Search lens icon" className="w-5 cursor-text text-darkGray" />
         </label>
         <input
           autoComplete="off"
@@ -77,11 +74,7 @@ export default function SearchBar({ searchParams, setSearchParams }) {
           className="rounded bg-white px-1 py-2 text-base shadow-none outline-none focus-visible:outline focus-visible:outline-darkBlue dark:bg-blue dark:focus-visible:outline-white sm:px-2 md:py-4"
         >
           {REGIONS.map((region) => (
-            <option
-              key={region}
-              value={region}
-              className="font-semibold text-inherit"
-            >
+            <option key={region} value={region} className="font-semibold text-inherit">
               {region}
             </option>
           ))}

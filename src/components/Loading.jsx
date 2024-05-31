@@ -1,9 +1,9 @@
 import LoadingSVG from "../assets/loading.svg?react";
 
-export default function Loading() {
+export function Loading() {
   return (
     <div
-      className="flex items-center justify-center pt-20 min-h-[1000px]"
+      className="flex min-h-[1000px] items-center justify-center pt-20"
       aria-live="polite"
       aria-label="Loading"
     >

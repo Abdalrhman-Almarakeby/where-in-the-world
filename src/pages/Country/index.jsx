@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
-import scrollToTop from "../../utils/scrollToTop";
-import getUrl from "../../utils/getUrl";
-import Loading from "../../components/Loading";
-import BackBtn from "./BackBtn";
-import CountryDetails from "./CountryDetails";
-import countriesCode from "../../utils/countriesCode.js";
-import Error from "../Error.jsx";
+import { Loading } from "../../components/Loading";
+import { useFetch } from "../../hooks/useFetch";
+import { scrollToTop } from "../../utils/scrollToTop";
+import { getUrl } from "../../utils/getUrl";
+import { countriesCode } from "../../utils/countriesCode.js";
+import { CountryDetails } from "./CountryDetails";
+import { BackBtn } from "./BackBtn";
+import { Error } from "../Error.jsx";
 
-export default function Country() {
+export function Country() {
   const { name } = useParams();
   const { data, isPending, error } = useFetch(getUrl(name));
 

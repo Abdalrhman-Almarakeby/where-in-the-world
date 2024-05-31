@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import countriesCode from "../../utils/countriesCode";
-import fromKebabCase from "../../utils/fromKebabCase";
+import { countriesCode } from "../../utils/countriesCode";
+import { fromKebabCase } from "../../utils/fromKebabCase";
 
-export default function BorderCountries({ countries }) {
+export function BorderCountries({ countries }) {
   if (countries.includes("ISR") && countries.includes("PSE")) {
     countries = countries.filter((country) => country !== "ISR");
   }
@@ -23,10 +23,7 @@ export default function BorderCountries({ countries }) {
       >
         Border Countries
       </p>
-      <div
-        className="flex flex-wrap gap-4"
-        aria-labelledby="borderCountriesHeader"
-      >
+      <div className="flex flex-wrap gap-4" aria-labelledby="borderCountriesHeader">
         {countries.map((border) => {
           const countryName = Object.keys(countriesCode).find(
             (key) => countriesCode[key] === border

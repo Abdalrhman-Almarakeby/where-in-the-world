@@ -1,4 +1,4 @@
-export default function Footer() {
+export function Footer() {
   const year = new Date().getFullYear();
 
   return (
@@ -6,7 +6,7 @@ export default function Footer() {
       Made by{" "}
       <a
         target="_blank"
-        href="https://www.youtube.com"
+        href="https://github.com/Abdalrhman-Almarakeby"
         className="hover:underline"
         rel="noreferrer"
       >

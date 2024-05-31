@@ -1,7 +1,5 @@
-export default function scrollToTop() {
-  const preferReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion)"
-  ).matches;
+export function scrollToTop() {
+  const preferReducedMotion = window.matchMedia("(prefers-reduced-motion)").matches;
 
   window.scrollTo({
     top: 0,

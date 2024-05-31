@@ -1,4 +1,4 @@
-export default function NoCountriesFound() {
+export function NoCountriesFound() {
   return (
     <>
       <p
@@ -7,9 +7,7 @@ export default function NoCountriesFound() {
       >
         No countries found
       </p>
-      <p className="text-center text-darkGray">
-        Try respelling the search term
-      </p>
+      <p className="text-center text-darkGray">Try respelling the search term</p>
     </>
   );
 }

@@ -1,6 +1,6 @@
-import countriesCode from "./countriesCode";
+import { countriesCode } from "./countriesCode";
 
-export default function getUrl(name) {
+export function getUrl(name) {
   const fields =
     "?fields=name,region,subregion,capital,population,currencies,languages,tld,borders,flags,maps,cca2";
 

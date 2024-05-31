@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import MoonIcon from "../assets/icons/moon.svg?react";
 import SunIcon from "../assets/icons/sun.svg?react";
-import useDarkMode from "../hooks/useDarkMode";
+import { useDarkMode } from "../hooks/useDarkMode";
 
-export default function Header() {
+export function Header() {
   const [enabled, setDarkMode] = useDarkMode();
 
   return (

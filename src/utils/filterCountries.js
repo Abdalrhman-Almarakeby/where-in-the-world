@@ -7,7 +7,7 @@ function filterByRegion(countries, region) {
 
 function filterBySearchTerm(countries, term) {
   const search = term.trim().toLowerCase() ?? "";
-  
+
   return countries?.filter(
     (country) =>
       country.name?.common?.toLowerCase().includes(search) ||
@@ -16,7 +16,7 @@ function filterBySearchTerm(countries, term) {
   );
 }
 
-export default function filterCountries(countries, searchParams) {
+export function filterCountries(countries, searchParams) {
   const region = searchParams.get("region");
   const searchTerm = searchParams.get("searchTerm");
 

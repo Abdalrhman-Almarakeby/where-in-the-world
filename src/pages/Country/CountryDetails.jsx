@@ -5,10 +5,10 @@ import {
   formatLanguages,
   formatNativeName,
 } from "../../utils/formatObjectValues";
-import formatNumberWithCommas from "../../utils/formatNumberWithCommas";
-import BorderCountries from "./BorderCountries";
+import { formatNumberWithCommas } from "../../utils/formatNumberWithCommas";
+import { BorderCountries } from "./BorderCountries";
 
-export default function CountryDetails({
+export function CountryDetails({
   name,
   region,
   subregion,

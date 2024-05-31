@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import * as countries from "country-flag-icons/react/3x2";
-import formatNumberWithCommas from "../../utils/formatNumberWithCommas";
-import toKebabCase from "../../utils/toKebabCase";
+import { formatNumberWithCommas } from "../../utils/formatNumberWithCommas";
+import { toKebabCase } from "../../utils/toKebabCase";
 
-export default function CountryCard({ name, population, flags, region, capital, cca2 }) {
+export function CountryCard({ name, population, flags, region, capital, cca2 }) {
   const Flag = countries[cca2];
   return (
     <Link

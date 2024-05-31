@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import scrollToTop from "../../utils/scrollToTop";
+import { scrollToTop } from "../../utils/scrollToTop";
 
-export default function Pagination({ nPages, currentPage, setSearchParams }) {
+export function Pagination({ nPages, currentPage, setSearchParams }) {
   const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
 
   function handlePageChange(page) {

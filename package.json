@@ -1,7 +1,7 @@
 {
   "name": "vite-project",
   "private": true,
-  "homepage": "https://abdalrhman-almarakeby.github.io/where-in-the-world",
+  "homepage": "where-in-the-world-ecru.vercel.app",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

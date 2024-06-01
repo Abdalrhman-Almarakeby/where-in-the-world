@@ -6,37 +6,25 @@ This project was created as a solution to the [REST Countries API with color the
 
 ## Overview
 
-- Browse a list of countries and search for specific country by name or capital city
-- Filter countries by region
-- Click on a country to view detailed information including:
+- Browse a list of countries and search for a specific country by name or capital city.
+- Filter countries by region.
+- Click on a country to view detailed information, including:
   - Flag
   - Name
   - Population
   - Region
   - Capital
-  - Top Level Domain
+  - Top-Level Domain
   - Currency
   - Language
   - Border Countries
-- Dark/Light mode toggle
-
-## Accessibility
-
-This project aims to be accessible to all users. Some accessibility features:
-
-- Semantic HTML provides meaning and structure
-- Color contrast meets WCAG 2.1 AA standards
-- Images have alternate text
-- Forms include labels and instructions
-- Focus is visible for keyboard navigation
-- Headings use proper hierarchy
-- ARIA roles used for additional meaning
+- Dark/Light mode toggle.
 
 ## Built With
 
 - [React](https://reactjs.org/)
-- [React Router](https://reactrouter.com/)
 - [Vite](https://vitejs.dev/)
+- [React Router](https://reactrouter.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 
 ## API
@@ -50,39 +38,45 @@ The following endpoints were used:
 - All - `https://restcountries.com/v2/all`
 - CCCA3 Code - `https://restcountries.com/v3.1/alpha/{code}`
 
+## Country Flags
+
+The [REST Countries API](https://restcountries.com/) provides country flags in PNG and SVG format from the [flagpedia.net API](https://flagpedia.net/download/api), but I did not use it because the flags have different aspect ratios, which caused inconsistent card sizes and large content shifts on the home page.
+
+So I used [country-flag-icons](https://www.npmjs.com/package/country-flag-icons), a package that provides country flags in a 3:2 aspect ratio.
+
+## Live Demo
+
+You can view a live demo hosted on Vercel:
+
+https://where-in-the-world-ecru.vercel.app/
+
 ## Running Locally
 
-1.  Clone the repository
+1.  Clone the repository:
 
 ```
 git clone https://github.com/abdalrhman-almarakeby/where-in-the-world.git
 ```
 
-2.  Navigate to the project directory
+2.  Navigate to the project directory:
 
 ```
 cd where-in-the-world
 ```
 
-3.  Install dependencies
+3.  Install dependencies:
 
 ```
 npm install
 ```
 
-4.  Start local dev server
+4.  Start the local development server:
 
 ```
 npm run dev
 ```
 
-2.  Open http://localhost:3000/where-in-the-world](http://localhost:3000/where-in-the-world) in your browser
-
-## Live Demo
-
-You can view a live demo hosted on GitHub Pages:
-
-https://abdalrhman-almarakeby.github.io/where-in-the-world/
+5.  Open [http://localhost:3000](http://localhost:3000/) in your browser.
 
 ## Contact
 

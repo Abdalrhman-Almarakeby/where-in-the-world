@@ -80,4 +80,8 @@ npm run dev
 
 ## Contact
 
-Abdalrhman Almarakeby - almarakeby65@gmail.com
+Github: [Abdalrhman Almarakeby](https://github.com/Abdalrhman-Almarakeby)
+
+Linkedin :[Abdalrhman Almarakeby](https://www.linkedin.com/in/abdalrhman-almarakeby/)
+
+Email: almarakeby.work@gmail.com

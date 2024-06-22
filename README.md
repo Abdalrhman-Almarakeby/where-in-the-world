@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="50px"src="./public//favicon/android-chrome-512x512.png" alt="Where In The World logo that is an image of globe " />
+  <img width="50px"src="./images/logo.png" alt="Where In The World logo that is an image of globe " />
   <p>Where In the World?</p>
 </div>
 
@@ -27,6 +27,8 @@ This project was created as a solution to the [REST Countries API with color the
   - Border Countries
 - Dark/Light mode toggle.
 
+View performance analysis overview [here](https://pagespeed.web.dev/analysis/https-where-in-the-world--app-vercel-app/r7d9x7qvny?form_factor=mobile).
+
 ## Built With
 
 - [React](https://reactjs.org/)
@@ -50,6 +52,8 @@ The following endpoints were used:
 The [REST Countries API](https://restcountries.com/) provides country flags in PNG and SVG format from the [flagpedia.net API](https://flagpedia.net/download/api), but I did not use it because the flags have different aspect ratios, which caused inconsistent card sizes and large content shifts on the home page.
 
 So I used [country-flag-icons](https://www.npmjs.com/package/country-flag-icons), a package that provides country flags in a 3:2 aspect ratio.
+
+View performance analysis [here](https://pagespeed.web.dev/analysis/https-where-in-the-world--app-vercel-app/r7d9x7qvny?form_factor=mobile).
 
 ## Live Demo
 

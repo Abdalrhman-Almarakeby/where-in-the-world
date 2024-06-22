@@ -1,6 +1,6 @@
 {
-    "name": "kjgljhgl",
-    "short_name": "kjgljhgl",
+    "name": "Where In The World",
+    "short_name": "Where In The World",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -8,12 +8,12 @@
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-256x256.png",
-            "sizes": "256x256",
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#202c37",
+    "background_color": "#202c37",
     "display": "standalone"
 }

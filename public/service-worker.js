@@ -1,12 +1,6 @@
 /* eslint-disable no-undef */
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/6.5.4/workbox-sw.js");
 
-if (workbox) {
-  console.log("Workbox is loaded 🎉");
-} else {
-  console.log("Workbox failed to load 😬");
-}
-
 workbox.routing.registerRoute(
   new RegExp(
     "https://restcountries.com/v3.1/all\\?fields=name,capital,flags,languages,region,population,cca3,cca2"

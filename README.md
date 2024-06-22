@@ -1,7 +1,7 @@
-<div style="text-align:center">
+<center>
   <img width="50px"src="./public//favicon/android-chrome-512x512.png" alt="Where In The World logo that is an image of globe " />
   <p>Where In the World?</p>
-</div>
+</center>
 
 # Where In the World?
 

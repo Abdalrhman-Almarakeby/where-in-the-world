@@ -1,8 +1,15 @@
-# Where In the World
+<div style="text-align:center">
+  <img width="50px"src="./public//favicon/android-chrome-512x512.png" alt="Where In The World logo that is an image of globe " />
+  <p>Where In the World?</p>
+</div>
+
+# Where In the World?
 
 A responsive Progressive Web App (PWA) that allows users to view and search for information about countries around the world.
 
 This project was created as a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
+
+![Screen shot of the Where In The World app on desktop screen size](./images//1.jpeg)
 
 ## Overview
 

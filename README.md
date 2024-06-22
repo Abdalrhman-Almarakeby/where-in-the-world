@@ -1,6 +1,6 @@
 # Where In the World
 
-A responsive web app that allows users to view and search for information about countries around the world.
+A responsive Progressive Web App (PWA) that allows users to view and search for information about countries around the world.
 
 This project was created as a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
@@ -48,7 +48,17 @@ So I used [country-flag-icons](https://www.npmjs.com/package/country-flag-icons)
 
 You can view a live demo hosted on Vercel:
 
-https://where-in-the-world-ecru.vercel.app/
+https://where-in-the-world--app.vercel.app/
+
+## installing as a Progressive Web App (PWA)
+
+This app is a Progressive Web App (PWA), which means you can install it on your device. Here’s how to install it:
+
+- Visit the app URL https://where-in-the-world-ecru.vercel.app/ in your browser.
+
+- Click on the browser's menu and select "Install Where In the World".
+
+- Follow the prompts to install the app on your device's home screen.
 
 ## Running Locally
 

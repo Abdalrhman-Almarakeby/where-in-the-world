@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	* {
+		-webkit-tap-highlight-color: transparent;
+		@apply selection-light dark:selection-dark;
+	}
+
+	:root {
+		--scrollbar-bg: #fafafa;
+		--scrollbar-thumb: #111517;
+	}
+
+	.light {
+		--scrollbar-bg: #fafafa;
+		--scrollbar-thumb: #111517;
+	}
+
+	.dark {
+		--scrollbar-bg: #202c37;
+		--scrollbar-thumb: #858585;
+	}
+
+	::-webkit-scrollbar {
+		@apply w-3 bg-[var(--scrollbar-bg)];
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply rounded  bg-[var(--scrollbar-thumb)];
+	}
+
+	html {
+		@apply font-sans;
+	}
+
+	img {
+		@apply h-auto max-w-full select-none bg-cover bg-no-repeat align-middle italic;
+	}
+}
+
+@layer components {
+	#cards-container {
+		grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+		@apply grid items-stretch gap-20 p-10;
+	}
+}
+
+@layer utilities {
+	.selection-light::selection {
+		@apply bg-veryDarkBlue text-lightGray;
+	}
+
+	.selection-dark::selection {
+		@apply bg-lightGray text-veryDarkBlue;
+	}
+}

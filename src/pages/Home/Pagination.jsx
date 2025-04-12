@@ -93,7 +93,7 @@ export function Pagination({ nPages, currentPage, setSearchParams }) {
 			<button
 				aria-label="Go to previous page of countries"
 				role="link"
-				className="rounded px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-darkGray disabled:font-light disabled:text-lightGray dark:font-bold"
+				className="rounded-sm px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-darkGray disabled:font-light disabled:text-lightGray dark:font-bold"
 				onClick={goToPrevPage}
 				disabled={currentPage === 1}
 				aria-disabled={currentPage === 1}
@@ -106,7 +106,7 @@ export function Pagination({ nPages, currentPage, setSearchParams }) {
 			<button
 				aria-label="Go to next page"
 				role="link"
-				className="rounded px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-darkGray disabled:font-light disabled:text-lightGray dark:font-bold"
+				className="rounded-sm px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-darkGray disabled:font-light disabled:text-lightGray dark:font-bold"
 				onClick={goToNextPage}
 				disabled={currentPage === nPages}
 				aria-disabled={currentPage === nPages}

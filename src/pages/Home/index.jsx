@@ -59,7 +59,7 @@ export function Home() {
 	const { currentCountries, currentPage, nPages } = getCountriesData(data);
 
 	return (
-		<main className="flex-grow bg-lightGray px-5 py-10 text-darkBlue dark:bg-darkBlue dark:text-white">
+		<main className="grow bg-lightGray px-5 py-10 text-darkBlue dark:bg-darkBlue dark:text-white">
 			{isPending ? (
 				<Loading />
 			) : (

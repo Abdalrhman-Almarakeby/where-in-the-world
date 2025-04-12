@@ -18,7 +18,7 @@ export function Country() {
 	}, [name]);
 
 	return countriesCode[name] ? (
-		<main className="flex flex-grow flex-col px-6 py-10 dark:bg-darkBlue">
+		<main className="flex grow flex-col px-6 py-10 dark:bg-darkBlue">
 			<div className="container">
 				{isPending && <Loading />}
 				{error && <div className="text-darkBlue dark:text-white">{error}</div>}

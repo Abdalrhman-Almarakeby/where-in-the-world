@@ -9,7 +9,7 @@ export function BackBtn() {
 			onClick={() => {
 				navigate(-1);
 			}}
-			className="flex w-fit items-center gap-4 rounded px-4 py-2 text-sm text-darkBlue shadow-lg focus-visible:outline focus-visible:outline-darkBlue dark:bg-blue dark:text-white dark:focus-visible:outline-white sm:px-6"
+			className="flex w-fit items-center gap-4 rounded-sm px-4 py-2 text-sm text-darkBlue shadow-lg focus-visible:outline focus-visible:outline-darkBlue dark:bg-blue dark:text-white dark:focus-visible:outline-white sm:px-6"
 			aria-label="Go back"
 		>
 			<BackIcon

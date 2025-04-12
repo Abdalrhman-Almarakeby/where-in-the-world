@@ -119,7 +119,7 @@ export function CountryDetails({
 					</p>
 
 					<a
-						className="rounded font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white"
+						className="rounded-sm font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white"
 						href={`https://en.wikipedia.org/wiki/${name.common.split(" ").join("_")}`}
 						target="_blank"
 						rel="noopener noreferrer"
@@ -128,7 +128,7 @@ export function CountryDetails({
 						Read more in Wikipedia
 					</a>
 					<a
-						className="rounded font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white"
+						className="rounded-sm font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white"
 						href={maps.googleMaps}
 						target="_blank"
 						rel="noopener noreferrer"

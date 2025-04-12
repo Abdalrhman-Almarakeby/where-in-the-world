@@ -59,7 +59,7 @@ export function Home() {
 	const { currentCountries, currentPage, nPages } = getCountriesData(data);
 
 	return (
-		<main className="grow bg-lightGray px-5 py-10 text-darkBlue dark:bg-darkBlue dark:text-white">
+		<main className="grow bg-light-gray px-5 py-10 text-dark-blue dark:bg-dark-blue dark:text-white">
 			{isPending ? (
 				<Loading />
 			) : (
@@ -69,7 +69,7 @@ export function Home() {
 						setSearchParams={setSearchParams}
 					/>
 					{error && (
-						<div className="text-darkBlue dark:text-white">{error}</div>
+						<div className="text-dark-blue dark:text-white">{error}</div>
 					)}
 					{currentCountries &&
 						(currentCountries.length ? (

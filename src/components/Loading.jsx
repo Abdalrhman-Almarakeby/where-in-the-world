@@ -8,7 +8,7 @@ export function Loading() {
 			aria-label="Loading"
 		>
 			<LoadingSVG
-				className="h-24 w-24 fill-darkBlue dark:fill-white"
+				className="h-24 w-24 fill-dark-blue dark:fill-white"
 				role="img"
 				aria-label="Loading indicator"
 			/>

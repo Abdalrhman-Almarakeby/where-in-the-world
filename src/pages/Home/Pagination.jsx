@@ -22,7 +22,7 @@ export function Pagination({ nPages, currentPage, setSearchParams }) {
 					key={number}
 					className={`font-bold dark:font-normal px-2 py-1 rounded ${
 						number === currentPage
-							? "bg-blue text-white  dark:bg-white font-extrabold  dark:text-veryDarkBlue"
+							? "bg-blue text-white  dark:bg-white font-extrabold  dark:text-very-dark-blue"
 							: ""
 					}`}
 				>
@@ -93,20 +93,20 @@ export function Pagination({ nPages, currentPage, setSearchParams }) {
 			<button
 				aria-label="Go to previous page of countries"
 				role="link"
-				className="rounded-sm px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-darkGray disabled:font-light disabled:text-lightGray dark:font-bold"
+				className="rounded-sm px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-dark-gray disabled:font-light disabled:text-light-gray dark:font-bold"
 				onClick={goToPrevPage}
 				disabled={currentPage === 1}
 				aria-disabled={currentPage === 1}
 			>
 				Previous
 			</button>
-			<ul className="flex justify-center gap-2 text-darkBlue dark:text-white">
+			<ul className="flex justify-center gap-2 text-dark-blue dark:text-white">
 				{getPaginationNumbers(pageNumbers.pop())}
 			</ul>
 			<button
 				aria-label="Go to next page"
 				role="link"
-				className="rounded-sm px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-darkGray disabled:font-light disabled:text-lightGray dark:font-bold"
+				className="rounded-sm px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-dark-gray disabled:font-light disabled:text-light-gray dark:font-bold"
 				onClick={goToNextPage}
 				disabled={currentPage === nPages}
 				aria-disabled={currentPage === nPages}

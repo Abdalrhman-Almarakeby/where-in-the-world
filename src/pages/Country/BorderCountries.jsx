@@ -14,7 +14,7 @@ export function BorderCountries({ countries }) {
 
 	return (
 		<nav
-			className="flex flex-col gap-4 capitalize text-darkBlue dark:font-semibold dark:text-white sm:gap-6 xl:col-span-2 2xl:col-span-1"
+			className="flex flex-col gap-4 capitalize text-dark-blue dark:font-semibold dark:text-white sm:gap-6 xl:col-span-2 2xl:col-span-1"
 			aria-label="Border countries"
 		>
 			<p
@@ -35,7 +35,7 @@ export function BorderCountries({ countries }) {
 					return (
 						<Link
 							to={`/country/${countryName}`}
-							className="rounded-sm px-5 py-1 text-sm capitalize shadow-xl focus-visible:outline focus-visible:outline-darkBlue dark:bg-blue dark:shadow-lg dark:focus-visible:outline-white sm:text-base"
+							className="rounded-sm px-5 py-1 text-sm capitalize shadow-xl focus-visible:outline focus-visible:outline-dark-blue dark:bg-blue dark:shadow-lg dark:focus-visible:outline-white sm:text-base"
 							key={border}
 							title={`Go to ${fromKebabCase(countryName)} page`}
 							aria-label={`Go to ${fromKebabCase(countryName)} page`}

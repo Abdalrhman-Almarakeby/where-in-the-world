@@ -39,7 +39,7 @@ export function CountryDetails({
 
 	return (
 		<main className="grid grid-cols-1 gap-10 lg:gap-16 lg:px-3 lg:pb-14 lg:pt-20 xl:grid-cols-2 xl:gap-x-24 xl:gap-y-14 xl:px-6">
-			<h3 className="hidden text-5xl font-bold text-darkBlue dark:text-white lg:block xl:hidden">
+			<h3 className="hidden text-5xl font-bold text-dark-blue dark:text-white lg:block xl:hidden">
 				{name.common}
 			</h3>
 			<div className="py-14 sm:px-16 md:px-40 lg:hidden lg:self-center lg:p-6 xl:block xl:self-start xl:p-0 2xl:row-span-2">
@@ -49,7 +49,7 @@ export function CountryDetails({
 					alt={flags.alt || `${name.common} flag`}
 				/>
 			</div>
-			<section className="grid gap-8 font-extrabold capitalize text-darkBlue dark:font-semibold dark:text-white sm:gap-10 sm:text-lg md:grid-cols-2 lg:grid-cols-3 lg:items-start lg:gap-16 lg:text-base xl:grid-cols-2 xl:gap-10 xl:text-lg">
+			<section className="grid gap-8 font-extrabold capitalize text-dark-blue dark:font-semibold dark:text-white sm:gap-10 sm:text-lg md:grid-cols-2 lg:grid-cols-3 lg:items-start lg:gap-16 lg:text-base xl:grid-cols-2 xl:gap-10 xl:text-lg">
 				<h3 className="text-[2.5rem] font-bold sm:text-5xl md:col-span-2 lg:hidden xl:block">
 					{name.common}
 				</h3>
@@ -119,7 +119,7 @@ export function CountryDetails({
 					</p>
 
 					<a
-						className="rounded-sm font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white"
+						className="rounded-sm font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-dark-blue dark:focus-visible:outline-white"
 						href={`https://en.wikipedia.org/wiki/${name.common.split(" ").join("_")}`}
 						target="_blank"
 						rel="noopener noreferrer"
@@ -128,7 +128,7 @@ export function CountryDetails({
 						Read more in Wikipedia
 					</a>
 					<a
-						className="rounded-sm font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white"
+						className="rounded-sm font-normal underline outline-2 outline-offset-8 focus-visible:outline focus-visible:outline-dark-blue dark:focus-visible:outline-white"
 						href={maps.googleMaps}
 						target="_blank"
 						rel="noopener noreferrer"

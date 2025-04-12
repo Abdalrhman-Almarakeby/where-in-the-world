@@ -18,10 +18,10 @@ export function Country() {
 	}, [name]);
 
 	return countriesCode[name] ? (
-		<main className="flex grow flex-col px-6 py-10 dark:bg-darkBlue">
+		<main className="flex grow flex-col px-6 py-10 dark:bg-dark-blue">
 			<div className="container">
 				{isPending && <Loading />}
-				{error && <div className="text-darkBlue dark:text-white">{error}</div>}
+				{error && <div className="text-dark-blue dark:text-white">{error}</div>}
 				{data && (
 					<>
 						<BackBtn />

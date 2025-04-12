@@ -48,7 +48,7 @@ export function SearchBar({ searchParams, setSearchParams }) {
 				<label htmlFor="search-input">
 					<SearchIcon
 						alt="Search lens icon"
-						className="w-5 cursor-text text-darkGray"
+						className="w-5 cursor-text text-dark-gray"
 					/>
 				</label>
 				<input
@@ -74,7 +74,7 @@ export function SearchBar({ searchParams, setSearchParams }) {
 					onChange={handleChange}
 					name="region"
 					aria-label="Region filter"
-					className="rounded-sm bg-white px-1 py-2 text-base shadow-none outline-hidden focus-visible:outline focus-visible:outline-darkBlue dark:bg-blue dark:focus-visible:outline-white sm:px-2 md:py-4"
+					className="rounded-sm bg-white px-1 py-2 text-base shadow-none outline-hidden focus-visible:outline focus-visible:outline-dark-blue dark:bg-blue dark:focus-visible:outline-white sm:px-2 md:py-4"
 				>
 					{REGIONS.map((region) => (
 						<option

@@ -7,12 +7,12 @@ export function Header() {
 	const [enabled, setDarkMode] = useDarkMode();
 
 	return (
-		<header className="z-50 bg-white text-veryDarkBlue shadow-md dark:bg-blue dark:text-white">
+		<header className="z-50 bg-white text-very-dark-blue shadow-md dark:bg-blue dark:text-white">
 			<div className="container flex items-center justify-between px-6 py-7">
 				<Link
 					title="Go to home page"
 					to="/"
-					className="rounded-sm font-extrabold outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white sm:text-xl md:text-lg lg:text-xl xl:text-2xl"
+					className="rounded-sm font-extrabold outline-offset-8 focus-visible:outline focus-visible:outline-dark-blue dark:focus-visible:outline-white sm:text-xl md:text-lg lg:text-xl xl:text-2xl"
 				>
 					<h1>Where in the world?</h1>
 				</Link>
@@ -22,7 +22,7 @@ export function Header() {
 					role="switch"
 					aria-checked={enabled}
 					onClick={() => setDarkMode((prev) => !prev)}
-					className="flex items-center gap-1 rounded-sm text-xs outline-hidden outline-offset-8 focus-visible:outline focus-visible:outline-darkBlue dark:focus-visible:outline-white md:gap-3 md:text-sm"
+					className="flex items-center gap-1 rounded-sm text-xs outline-hidden outline-offset-8 focus-visible:outline focus-visible:outline-dark-blue dark:focus-visible:outline-white md:gap-3 md:text-sm"
 				>
 					{enabled ? (
 						<SunIcon alt="Sun icon" className="w-3 md:w-4" />

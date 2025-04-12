@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-blue: hsl(209, 23%, 22%);
+  --color-dark-blue: hsl(207, 26%, 17%);
+  --color-very-dark-blue: hsl(200, 15%, 8%);
+  --color-dark-gray: hsl(0, 0%, 52%);
+  --color-light-gray: hsl(0, 0%, 98%);
+
+  --shadow-1: rgba(0, 0, 0, 0.2) 0px 2px 8px;
+}
+
+@utility container {
+  margin-inline: auto;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility selection-light {
+  &::selection {
+    @apply bg-veryDarkBlue text-lightGray;
+  }
+}
+
+@utility selection-dark {
+  &::selection {
+    @apply bg-lightGray text-veryDarkBlue;
+  }
+}
+
+@layer base {
+	* {
+		-webkit-tap-highlight-color: transparent;
+		@apply selection-light dark:selection-dark;
+	}
+
+	:root {
+		--scrollbar-bg: #fafafa;
+		--scrollbar-thumb: #111517;
+	}
+
+	.light {
+		--scrollbar-bg: #fafafa;
+		--scrollbar-thumb: #111517;
+	}
+
+	.dark {
+		--scrollbar-bg: #202c37;
+		--scrollbar-thumb: #858585;
+	}
+
+	::-webkit-scrollbar {
+		@apply w-3 bg-[var(--scrollbar-bg)];
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply rounded-sm  bg-[var(--scrollbar-thumb)];
+	}
+
+	html {
+		@apply font-sans;
+	}
+
+	img {
+		@apply h-auto max-w-full select-none bg-cover bg-no-repeat align-middle italic;
+	}
+}
+
+@layer components {
+	#cards-container {
+		grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+		@apply grid items-stretch gap-20 p-10;
+	}
+}

@@ -6,7 +6,6 @@ import { Header } from "./components/Header";
 import { Country } from "./pages/Country/index";
 import { Error } from "./pages/Error";
 import { Home } from "./pages/Home/index";
-import "./CSS/main.css";
 
 // Root layout componenimport { createRoot } from "react-dom/client";
 

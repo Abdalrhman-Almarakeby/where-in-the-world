@@ -4,9 +4,8 @@ import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
-  plugins: [svgr(), react(), tailwindcss()],
-  server: {
-    port: 3000,
-  },
+	plugins: [svgr(), react(), tailwindcss()],
+	server: {
+		port: 3000,
+	},
 });
-

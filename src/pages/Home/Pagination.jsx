@@ -52,18 +52,18 @@ export function Pagination({ nPages, currentPage, setSearchParams }) {
 
 			if (currentPage > 3) numbers.push(addDots("A"));
 
-			if (currentPage == numberOfPages)
+			if (currentPage === numberOfPages)
 				numbers.push(addButton(currentPage - 2));
 
 			if (currentPage > 2) numbers.push(addButton(currentPage - 1));
 
-			if (currentPage != 1 && currentPage != numberOfPages)
+			if (currentPage !== 1 && currentPage !== numberOfPages)
 				numbers.push(addButton(currentPage));
 
 			if (currentPage < numberOfPages - 1)
 				numbers.push(addButton(currentPage + 1));
 
-			if (currentPage == 1) numbers.push(addButton(currentPage + 2));
+			if (currentPage === 1) numbers.push(addButton(currentPage + 2));
 
 			if (currentPage < numberOfPages - 2) numbers.push(addDots("B"));
 		}

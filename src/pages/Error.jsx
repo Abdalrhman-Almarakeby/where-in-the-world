@@ -5,7 +5,7 @@ export function ErrorPage() {
 		<section className="flex grow flex-col items-center justify-center gap-8 dark:bg-dark-blue dark:text-white">
 			<h1 className="text-center text-5xl font-extrabold">Error 404</h1>
 			<p className="text-center text-2xl font-semibold">
-				Sorry, we couldn<>&apos;</>t find the page you were looking for.
+				Sorry, we couldn&apos;t find the page you were looking for.
 			</p>
 			<Link
 				to="/"

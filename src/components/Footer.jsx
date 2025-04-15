@@ -13,7 +13,7 @@ export function Footer() {
 				Abdalrhman Almarakeby
 			</a>
 			<br />
-			All copy right receive <>&copy;</> {year}.
+			All copy right receive &copy; {year}.
 		</footer>
 	);
 }

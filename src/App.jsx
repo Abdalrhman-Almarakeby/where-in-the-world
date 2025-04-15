@@ -4,7 +4,7 @@ import "./styles.css";
 import { Footer } from "./components/Footer.jsx";
 import { Header } from "./components/Header";
 import { Country } from "./pages/Country/index";
-import { Error } from "./pages/Error";
+import { ErrorPage } from "./pages/Error";
 import { Home } from "./pages/Home/index";
 
 // Root layout componenimport { createRoot } from "react-dom/client";
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Root />,
-		errorElement: <Error />,
+		errorElement: <ErrorPage />,
 		children: [
 			{
 				index: true,

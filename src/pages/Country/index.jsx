@@ -5,7 +5,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { countriesCode } from "../../utils/countriesCode.js";
 import { getUrl } from "../../utils/getUrl";
 import { scrollToTop } from "../../utils/scrollToTop";
-import { Error } from "../Error.jsx";
+import { ErrorPage } from "../Error.jsx";
 import { BackBtn } from "./BackBtn";
 import { CountryDetails } from "./CountryDetails";
 
@@ -31,6 +31,6 @@ export function Country() {
 			</div>
 		</main>
 	) : (
-		<Error />
+		<ErrorPage />
 	);
 }

@@ -1,6 +1,6 @@
+import { Moon } from "lucide-react";
+import { Sun } from "lucide-react";
 import { Link } from "react-router";
-import MoonIcon from "../assets/icons/moon.svg?react";
-import SunIcon from "../assets/icons/sun.svg?react";
 import { useDarkMode } from "../hooks/useDarkMode";
 
 export function Header() {
@@ -24,11 +24,7 @@ export function Header() {
 					onClick={() => setDarkMode((prev) => !prev)}
 					className="flex items-center gap-1 rounded-sm text-xs outline-hidden outline-offset-8 focus-visible:outline focus-visible:outline-dark-blue dark:focus-visible:outline-white md:gap-3 md:text-sm"
 				>
-					{enabled ? (
-						<SunIcon alt="Sun icon" className="w-3 md:w-4" />
-					) : (
-						<MoonIcon alt="Moon icon" className="w-3 md:w-4" />
-					)}
+					{enabled ? <Sun /> : <Moon />}
 					<span>{enabled ? "Light Mode" : "Dark Mode"}</span>
 				</button>
 			</div>

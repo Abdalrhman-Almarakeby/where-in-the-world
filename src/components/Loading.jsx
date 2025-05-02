@@ -1,17 +1,13 @@
-import LoadingSVG from "../assets/loading.svg?react";
+import { LoaderCircle } from "lucide-react";
 
 export function Loading() {
 	return (
 		<div
-			className="flex min-h-[1000px] items-center justify-center pt-20"
+			className="flex items-center justify-center pt-20"
 			aria-live="polite"
 			aria-label="Loading"
 		>
-			<LoadingSVG
-				className="h-24 w-24 fill-dark-blue dark:fill-white"
-				role="img"
-				aria-label="Loading indicator"
-			/>
+			<LoaderCircle className="h-24 w-24 animate-spin" />
 		</div>
 	);
 }

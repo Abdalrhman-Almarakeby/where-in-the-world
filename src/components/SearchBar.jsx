@@ -1,6 +1,6 @@
+import { SearchIcon } from "lucide-react";
 import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
-import SearchIcon from "../assets/icons/search-lens.svg?react";
 
 export function SearchBar({ searchParams, setSearchParams }) {
 	const REGIONS = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
@@ -46,10 +46,7 @@ export function SearchBar({ searchParams, setSearchParams }) {
 				className="flex w-96 max-w-full cursor-text items-center justify-start gap-2 rounded-sm bg-white px-4 py-2 shadow-lg transition-[outline] focus-within:outline dark:bg-blue dark:text-white sm:px-6 sm:py-4"
 			>
 				<label htmlFor="search-input">
-					<SearchIcon
-						alt="Search lens icon"
-						className="w-5 cursor-text text-dark-gray"
-					/>
+					<SearchIcon className="w-5 cursor-text text-dark-gray" />
 				</label>
 				<input
 					autoComplete="off"

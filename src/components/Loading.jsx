@@ -3,7 +3,7 @@ import { LoaderCircle } from "lucide-react";
 export function Loading() {
 	return (
 		<div
-			className="flex min-h-[1000px] items-center justify-center pt-20"
+			className="flex items-center justify-center pt-20"
 			aria-live="polite"
 			aria-label="Loading"
 		>

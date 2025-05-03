@@ -17,6 +17,7 @@ export function Header() {
 					<h1>Where in the world?</h1>
 				</Link>
 				<button
+					type="button"
 					title={enabled ? "Light mode toggle" : "Dark mode toggle"}
 					aria-label={enabled ? "Light mode toggle" : "Dark mode toggle"}
 					role="switch"

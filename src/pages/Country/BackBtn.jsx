@@ -6,6 +6,7 @@ export function BackBtn() {
 
 	return (
 		<button
+			type="button"
 			onClick={() => {
 				navigate(-1);
 			}}

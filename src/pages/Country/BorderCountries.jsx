@@ -1,5 +1,5 @@
 import { countriesCode } from "@/utils/countriesCode";
-import { fromKebabCase } from "@/utils/fromKebabCase";
+import { fromKebabCase } from "@/utils/string";
 import PropTypes from "prop-types";
 import { Link } from "react-router";
 

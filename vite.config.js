@@ -7,9 +7,11 @@ export default defineConfig({
 	plugins: [react(), tailwindcss()],
 	server: {
 		port: 3000,
+		open: true,
 	},
 	preview: {
 		port: 300,
+		open: true,
 	},
 	resolve: {
 		alias: {

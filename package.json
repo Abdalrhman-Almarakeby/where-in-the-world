@@ -12,14 +12,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.5",
     "country-flag-icons": "^1.5.18",
     "lucide-react": "^0.506.0",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.5.1",
-    "tailwindcss": "^4.1.4",
+    "tailwindcss": "^4.1.5",
     "vite-plugin-svgr": "^4.3.0"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-import { toKebabCase } from "@/utils/toKebabCase";
+import { toKebabCase } from "@/utils/string";
 import * as countries from "country-flag-icons/react/3x2";
 import PropTypes from "prop-types";
 import { Link } from "react-router";

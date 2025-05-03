@@ -13,6 +13,7 @@ export function Country() {
 	const { name } = useParams();
 	const { data, isPending, error } = useFetch(getUrl(name));
 
+	// biome-ignore lint/correctness/useExhaustiveDependencies: It needs to scroll to the top every time the name changes
 	useEffect(() => {
 		scrollToTop();
 	}, [name]);

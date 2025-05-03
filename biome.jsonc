@@ -6,7 +6,12 @@
 	"organizeImports": { "enabled": true },
 	"linter": {
 		"enabled": true,
-		"rules": { "recommended": true },
+		"rules": {
+			"recommended": true,
+			"a11y": {
+				"useSemanticElements": "off"
+			}
+		},
 		"ignore": ["dist"]
 	},
 	"javascript": { "formatter": { "quoteStyle": "double" } }

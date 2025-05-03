@@ -27,6 +27,7 @@ export function Pagination({ nPages, currentPage, setSearchParams }) {
 					}`}
 				>
 					<button
+						type="button"
 						role="link"
 						aria-label={`Go to page number ${number} of countries`}
 						onClick={() => handlePageChange(number)}
@@ -91,6 +92,7 @@ export function Pagination({ nPages, currentPage, setSearchParams }) {
 			className="mt-10 flex items-center justify-between text-xs sm:justify-center sm:gap-10"
 		>
 			<button
+				type="button"
 				aria-label="Go to previous page of countries"
 				role="link"
 				className="rounded-sm px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-dark-gray disabled:font-light disabled:text-light-gray dark:font-bold"
@@ -104,6 +106,7 @@ export function Pagination({ nPages, currentPage, setSearchParams }) {
 				{getPaginationNumbers(pageNumbers.pop())}
 			</ul>
 			<button
+				type="button"
 				aria-label="Go to next page"
 				role="link"
 				className="rounded-sm px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-dark-gray disabled:font-light disabled:text-light-gray dark:font-bold"

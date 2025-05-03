@@ -1,7 +1,7 @@
+import { useDarkMode } from "@/hooks/useDarkMode";
 import { Moon } from "lucide-react";
 import { Sun } from "lucide-react";
 import { Link } from "react-router";
-import { useDarkMode } from "../hooks/useDarkMode";
 
 export function Header() {
 	const [enabled, setDarkMode] = useDarkMode();

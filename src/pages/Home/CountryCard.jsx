@@ -1,8 +1,8 @@
+import { formatNumberWithCommas } from "@/utils/formatNumberWithCommas";
+import { toKebabCase } from "@/utils/toKebabCase";
 import * as countries from "country-flag-icons/react/3x2";
 import PropTypes from "prop-types";
 import { Link } from "react-router";
-import { formatNumberWithCommas } from "../../utils/formatNumberWithCommas";
-import { toKebabCase } from "../../utils/toKebabCase";
 
 export function CountryCard({
 	name,

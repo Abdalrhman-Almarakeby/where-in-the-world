@@ -1,11 +1,11 @@
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router";
-import "./styles.css";
+import "@/styles.css";
 
-import { Footer } from "./components/Footer.jsx";
-import { Header } from "./components/Header";
-import { Country } from "./pages/Country/index";
-import { ErrorPage } from "./pages/Error";
-import { Home } from "./pages/Home/index";
+import { Footer } from "@/components/Footer.jsx";
+import { Header } from "@/components/Header";
+import { Country } from "@/pages/Country/index";
+import { ErrorPage } from "@/pages/Error";
+import { Home } from "@/pages/Home/index";
 
 // Root layout componenimport { createRoot } from "react-dom/client";
 

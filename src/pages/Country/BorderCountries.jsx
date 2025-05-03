@@ -1,7 +1,7 @@
+import { countriesCode } from "@/utils/countriesCode";
+import { fromKebabCase } from "@/utils/fromKebabCase";
 import PropTypes from "prop-types";
 import { Link } from "react-router";
-import { countriesCode } from "../../utils/countriesCode";
-import { fromKebabCase } from "../../utils/fromKebabCase";
 
 export function BorderCountries({ countries }) {
 	if (countries.includes("ISR") && countries.includes("PSE")) {

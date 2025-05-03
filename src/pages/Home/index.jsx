@@ -1,9 +1,9 @@
+import { Loading } from "@/components/Loading";
+import { SearchBar } from "@/components/SearchBar";
+import { useFetch } from "@/hooks/useFetch";
+import { filterCountries } from "@/utils/filterCountries";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import { Loading } from "../../components/Loading";
-import { SearchBar } from "../../components/SearchBar";
-import { useFetch } from "../../hooks/useFetch";
-import { filterCountries } from "../../utils/filterCountries";
 import { CountryCard } from "./CountryCard";
 import { NoCountriesFound } from "./NoCountriesFound";
 import { Pagination } from "./Pagination";

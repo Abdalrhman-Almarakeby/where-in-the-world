@@ -1,11 +1,11 @@
-import * as countries from "country-flag-icons/react/3x2";
-import PropType from "prop-types";
-import { formatNumberWithCommas } from "../../utils/formatNumberWithCommas";
+import { formatNumberWithCommas } from "@/utils/formatNumberWithCommas";
 import {
 	formatCurrencies,
 	formatLanguages,
 	formatNativeName,
-} from "../../utils/formatObjectValues";
+} from "@/utils/formatObjectValues";
+import * as countries from "country-flag-icons/react/3x2";
+import PropType from "prop-types";
 import { BorderCountries } from "./BorderCountries";
 
 export function CountryDetails({

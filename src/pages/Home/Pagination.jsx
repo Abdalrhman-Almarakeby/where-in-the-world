@@ -1,5 +1,5 @@
+import { scrollToTop } from "@/utils/scrollToTop";
 import PropTypes from "prop-types";
-import { scrollToTop } from "../../utils/scrollToTop";
 
 export function Pagination({ nPages, currentPage, setSearchParams }) {
 	const pageNumbers = [...Array(nPages + 1).keys()].slice(1);

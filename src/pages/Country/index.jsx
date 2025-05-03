@@ -1,10 +1,10 @@
+import { Loading } from "@/components/Loading";
+import { useFetch } from "@/hooks/useFetch";
+import { countriesCode } from "@/utils/countriesCode.js";
+import { getUrl } from "@/utils/getUrl";
+import { scrollToTop } from "@/utils/scrollToTop";
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import { Loading } from "../../components/Loading";
-import { useFetch } from "../../hooks/useFetch";
-import { countriesCode } from "../../utils/countriesCode.js";
-import { getUrl } from "../../utils/getUrl";
-import { scrollToTop } from "../../utils/scrollToTop";
 import { ErrorPage } from "../Error.jsx";
 import { BackBtn } from "./BackBtn";
 import { CountryDetails } from "./CountryDetails";

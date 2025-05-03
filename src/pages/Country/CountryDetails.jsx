@@ -1,4 +1,3 @@
-import { formatNumberWithCommas } from "@/utils/formatNumberWithCommas";
 import {
 	formatCurrencies,
 	formatLanguages,
@@ -71,7 +70,7 @@ export function CountryDetails({
 					<p>
 						Population:{" "}
 						<span className="font-normal dark:font-extralight">
-							{formatNumberWithCommas(population)}
+							{population.toLocaleString()}
 						</span>
 					</p>
 					<p>

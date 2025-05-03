@@ -1,4 +1,3 @@
-import { formatNumberWithCommas } from "@/utils/formatNumberWithCommas";
 import { toKebabCase } from "@/utils/toKebabCase";
 import * as countries from "country-flag-icons/react/3x2";
 import PropTypes from "prop-types";
@@ -35,9 +34,7 @@ export function CountryCard({
 				</h2>
 				<p className="font-semibold" id="country-population">
 					Population:{" "}
-					<span className="font-normal">
-						{formatNumberWithCommas(population)}
-					</span>
+					<span className="font-normal">{population.toLocaleString()}</span>
 				</p>
 				<p className="font-semibold" id="country-region">
 					Region: <span className="font-normal">{region}</span>

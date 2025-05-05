@@ -15,7 +15,7 @@ export function CountryCard({
 	return (
 		<Link
 			to={`/country/${toKebabCase(name.common)}`}
-			className="flex h-full min-w-fit flex-col justify-between overflow-hidden rounded-sm bg-white shadow-xl outline-2 focus:outline focus:outline-dark-blue dark:bg-blue dark:focus:outline-white"
+			className="flex h-full min-w-fit flex-col justify-between overflow-hidden rounded-sm bg-white shadow-xl focus:outline-2 focus:outline-dark-blue dark:bg-blue dark:focus:outline-white"
 			title={name.common}
 			aria-label={`Country Card: ${name.common}`}
 		>

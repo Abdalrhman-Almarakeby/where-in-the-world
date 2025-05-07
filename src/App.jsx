@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Country } from "@/pages/Country/index";
 import { ErrorPage } from "@/pages/Error";
 import { Home } from "@/pages/Home/index";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // Root layout componenimport { createRoot } from "react-dom/client";
 
@@ -38,6 +39,12 @@ const router = createBrowserRouter([
 	},
 ]);
 
+const queryClient = new QueryClient();
+
 export function App() {
-	return <RouterProvider router={router} />;
+	return (
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router} />
+		</QueryClientProvider>
+	);
 }

@@ -1,7 +1,7 @@
 import { Loading } from "@/components/Loading";
 import { SearchBar } from "@/components/SearchBar";
-import { useFetch } from "@/hooks/useFetch";
 import { filterCountries } from "@/utils/filterCountries";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { CountryCard } from "./CountryCard";
@@ -14,9 +14,19 @@ export function Home() {
 		searchTerm: "",
 		page: 1,
 	});
-	const { data, isPending, error } = useFetch(
-		"https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,region,population,cca3,cca2",
-	);
+	const { data, isLoading, error } = useQuery({
+		queryKey: ["countries", searchParams],
+		queryFn: async () => {
+			const res = await fetch(
+				"https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,region,population,cca3,cca2",
+			);
+			if (!res.ok) {
+				throw new Error("Country not found");
+			}
+			return await res.json();
+		},
+		keepPreviousData: true,
+	});
 
 	const [countriesPerPage, setCountriesPerPage] = useState(10);
 
@@ -60,7 +70,7 @@ export function Home() {
 
 	return (
 		<main className="grow bg-light-gray px-5 py-10 text-dark-blue dark:bg-dark-blue dark:text-white">
-			{isPending ? (
+			{isLoading ? (
 				<Loading />
 			) : (
 				<div className="container">
@@ -69,7 +79,9 @@ export function Home() {
 						setSearchParams={setSearchParams}
 					/>
 					{error && (
-						<div className="text-dark-blue dark:text-white">{error}</div>
+						<div className="text-dark-blue dark:text-white">
+							{error.message}
+						</div>
 					)}
 					{currentCountries &&
 						(currentCountries.length ? (
@@ -83,7 +95,7 @@ export function Home() {
 						))}
 				</div>
 			)}
-			{!isPending && nPages > 1 && (
+			{!isLoading && nPages > 1 && (
 				<Pagination
 					nPages={nPages}
 					currentPage={currentPage}

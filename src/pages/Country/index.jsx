@@ -1,8 +1,7 @@
 import { Loading } from "@/components/Loading";
+import { useCountry } from "@/hooks/useCountry.js";
 import { countriesCode } from "@/utils/countriesCode.js";
-import { getUrl } from "@/utils/getUrl";
 import { scrollToTop } from "@/utils/scrollToTop";
-import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { ErrorPage } from "../Error.jsx";
@@ -11,16 +10,7 @@ import { CountryDetails } from "./CountryDetails";
 
 export function Country() {
 	const { name } = useParams();
-	const { data, error, isLoading } = useQuery({
-		queryKey: ["country", name],
-		queryFn: async () => {
-			const res = await fetch(getUrl(name));
-			if (!res.ok) {
-				throw new Error("Country not found");
-			}
-			return await res.json();
-		},
-	});
+	const { data, error, isLoading } = useCountry(name);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: It needs to scroll to the top every time the name changes
 	useEffect(() => {

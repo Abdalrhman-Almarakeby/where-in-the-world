@@ -1,13 +1,11 @@
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router";
-import "@/styles.css";
-
 import { Footer } from "@/components/Footer.jsx";
 import { Header } from "@/components/Header";
 import { Country } from "@/pages/Country/index";
 import { ErrorPage } from "@/pages/Error";
 import { Home } from "@/pages/Home/index";
-
-// Root layout componenimport { createRoot } from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router";
+import "@/styles.css";
 
 const Root = () => {
 	return (
@@ -38,6 +36,12 @@ const router = createBrowserRouter([
 	},
 ]);
 
+const queryClient = new QueryClient();
+
 export function App() {
-	return <RouterProvider router={router} />;
+	return (
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router} />
+		</QueryClientProvider>
+	);
 }

@@ -1,7 +1,7 @@
 import { Loading } from "@/components/Loading";
 import { SearchBar } from "@/components/SearchBar";
+import { useCountries } from "@/hooks/useCountries";
 import { filterCountries } from "@/utils/filterCountries";
-import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { CountryCard } from "./CountryCard";
@@ -14,19 +14,7 @@ export function Home() {
 		searchTerm: "",
 		page: 1,
 	});
-	const { data, isLoading, error } = useQuery({
-		queryKey: ["countries", searchParams],
-		queryFn: async () => {
-			const res = await fetch(
-				"https://restcountries.com/v3.1/all?fields=name,capital,flags,languages,region,population,cca3,cca2",
-			);
-			if (!res.ok) {
-				throw new Error("Country not found");
-			}
-			return await res.json();
-		},
-		keepPreviousData: true,
-	});
+	const { data, isLoading, error } = useCountries(searchParams);
 
 	const [countriesPerPage, setCountriesPerPage] = useState(10);
 

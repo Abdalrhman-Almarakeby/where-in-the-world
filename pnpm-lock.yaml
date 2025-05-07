@@ -12,8 +12,8 @@ importers:
         specifier: ^4.1.5
         version: 4.1.5(vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.7.1))
       '@tanstack/react-query':
-        specifier: ^5.75.4
-        version: 5.75.4(react@19.1.0)
+        specifier: ^5.75.5
+        version: 5.75.5(react@19.1.0)
       country-flag-icons:
         specifier: ^1.5.19
         version: 1.5.19
@@ -548,11 +548,11 @@ packages:
     peerDependencies:
       vite: ^5.2.0 || ^6
 
-  '@tanstack/query-core@5.75.4':
-    resolution: {integrity: sha512-pcqOUgWG9oGlzkfRQQMMsEFmtQu0wq81A414CtELZGq+ztVwSTAaoB3AZRAXQJs88LmNMk2YpUKuQbrvzNDyRg==}
+  '@tanstack/query-core@5.75.5':
+    resolution: {integrity: sha512-kPDOxtoMn2Ycycb76Givx2fi+2pzo98F9ifHL/NFiahEDpDwSVW6o12PRuQ0lQnBOunhRG5etatAhQij91M3MQ==}
 
-  '@tanstack/react-query@5.75.4':
-    resolution: {integrity: sha512-Vf65pzYRkf8fk9SP1ncIZjvaXszBhtsvpf+h45Y/9kOywOrVZfBGUpCdffdsVzbmBzmz6TCFes9bM0d3pRrIsA==}
+  '@tanstack/react-query@5.75.5':
+    resolution: {integrity: sha512-QrLCJe40BgBVlWdAdf2ZEVJ0cISOuEy/HKupId1aTKU6gPJZVhSvZpH+Si7csRflCJphzlQ77Yx6gUxGW9o0XQ==}
     peerDependencies:
       react: ^18 || ^19
 
@@ -1263,11 +1263,11 @@ snapshots:
       tailwindcss: 4.1.5
       vite: 6.3.5(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.7.1)
 
-  '@tanstack/query-core@5.75.4': {}
+  '@tanstack/query-core@5.75.5': {}
 
-  '@tanstack/react-query@5.75.4(react@19.1.0)':
+  '@tanstack/react-query@5.75.5(react@19.1.0)':
     dependencies:
-      '@tanstack/query-core': 5.75.4
+      '@tanstack/query-core': 5.75.5
       react: 19.1.0
 
   '@types/babel__core@7.20.5':

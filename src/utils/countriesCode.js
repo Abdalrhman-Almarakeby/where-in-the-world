@@ -1,3 +1,8 @@
+/**
+ *  A mapping of country names in kebab case to their ISO 3166-1 alpha-3 codes.
+ *
+ * @type {{[key: string]: string}}
+ */
 export const countriesCode = {
 	aruba: "ABW",
 	afghanistan: "AFG",

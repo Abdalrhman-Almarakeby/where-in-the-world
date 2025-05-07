@@ -7,6 +7,32 @@ import * as countries from "country-flag-icons/react/3x2";
 import PropType from "prop-types";
 import { BorderCountries } from "./BorderCountries";
 
+/**
+ * Displays detailed information about a specific country, including:
+ * - Flag, name, native name(s), population, region, subregion, capital(s)
+ * - Currencies, languages, top-level domains, and links to Wikipedia & Google Maps
+ * - Optionally renders border countries via the `BorderCountries` component
+ *
+ * Special handling is applied for Palestine:
+ * - If the country is Palestine, Jerusalem is shown as capital
+ * - Border countries are adjusted (e.g., removing PSE, adding SYR and LBN)
+ *
+ * @param {{
+ *   name: { common: string, nativeName: Record<string, any> },
+ *   region: string,
+ *   subregion: string,
+ *   capital: string[],
+ *   population: number,
+ *   currencies: Record<string, any>,
+ *   languages: Record<string, any>,
+ *   tld?: string[],
+ *   borders?: string[],
+ *   flags: { svg: string, alt?: string },
+ *   maps: { googleMaps: string, openStreetMaps: string },
+ *   cca2: string
+ * }} props - Country data used to render the details.
+ */
+
 export function CountryDetails({
 	name,
 	region,
@@ -29,11 +55,12 @@ export function CountryDetails({
 			</p>
 		) : null;
 
-	if (name.common === "Palestine") {
+	if (name.common === "Palestine" && borders) {
 		borders = borders.filter((border) => border !== "PSE");
 		borders = [...borders, "SYR", "LBN"];
 	}
 
+	// @ts-expect-error
 	const Flag = countries[cca2];
 
 	return (
@@ -45,7 +72,7 @@ export function CountryDetails({
 				<Flag
 					role="img"
 					className="shadow-1 dark:shadow-none"
-					alt={flags.alt || `${name.common} flag`}
+					aria-label={flags.alt || `${name.common} flag`}
 				/>
 			</div>
 			<section className="grid gap-8 font-extrabold capitalize text-dark-blue dark:font-semibold dark:text-white sm:gap-10 sm:text-lg md:grid-cols-2 lg:grid-cols-3 lg:items-start lg:gap-16 lg:text-base xl:grid-cols-2 xl:gap-10 xl:text-lg">
@@ -137,7 +164,9 @@ export function CountryDetails({
 					</a>
 				</div>
 			</section>
-			{borders.length > 0 && <BorderCountries countries={borders} />}
+			{(borders ?? []).length > 0 && (
+				<BorderCountries countries={borders ?? []} />
+			)}
 		</main>
 	);
 }

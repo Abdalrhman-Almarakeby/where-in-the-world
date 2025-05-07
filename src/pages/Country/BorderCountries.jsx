@@ -3,6 +3,18 @@ import { fromKebabCase } from "@/utils/string";
 import PropTypes from "prop-types";
 import { Link } from "react-router";
 
+/**
+ * Renders a list of neighboring countries as navigable links.
+ *
+ * Special logic is applied to handle the presence of both "ISR" (Israel) and "PSE" (Palestine):
+ * - If both are present, "ISR" is removed.
+ * - If only "ISR" is present, it is replaced with "PSE".
+ *
+ * Each country code is mapped to its name using the `countriesCode` map,
+ * and displayed as a capitalized link.
+ *
+ * @param {{ countries: string[] }} props - An array of country codes representing border countries.
+ */
 export function BorderCountries({ countries }) {
 	if (countries.includes("ISR") && countries.includes("PSE")) {
 		countries = countries.filter((country) => country !== "ISR");
@@ -50,5 +62,5 @@ export function BorderCountries({ countries }) {
 }
 
 BorderCountries.propTypes = {
-	countries: PropTypes.array.isRequired,
+	countries: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

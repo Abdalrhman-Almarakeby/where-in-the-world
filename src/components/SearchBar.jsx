@@ -2,11 +2,24 @@ import { Search } from "lucide-react";
 import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
 
+/**
+ * SearchBar component for filtering and searching countries.
+ *
+ * @param {{
+ *   searchParams: URLSearchParams,
+ *   setSearchParams: (value: (prev: URLSearchParams) => URLSearchParams, options?: { replace?: boolean }) => void
+ * }} props
+ */
 export function SearchBar({ searchParams, setSearchParams }) {
 	const REGIONS = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
-	const searchRef = useRef();
+	/** @type {React.RefObject<HTMLInputElement | null>} */
+	const searchRef = useRef(null);
 
 	useEffect(() => {
+		/**
+		 *
+		 * @param {KeyboardEvent} e
+		 */
 		function handleKeyDown(e) {
 			if (
 				((e.code === "Slash" && e.ctrlKey) ||
@@ -25,14 +38,18 @@ export function SearchBar({ searchParams, setSearchParams }) {
 	}, []);
 
 	function focusOnSearch() {
-		searchRef.current.focus();
+		searchRef?.current?.focus();
 	}
 
+	/**
+	 *
+	 * @param {React.ChangeEvent<HTMLSelectElement | HTMLInputElement>} e
+	 */
 	function handleChange(e) {
 		setSearchParams(
 			(prev) => {
-				prev.set([e.target.name], e.target.value);
-				prev.set("page", 1);
+				prev.set(e.target.name, e.target.value);
+				prev.set("page", "1");
 				return prev;
 			},
 			{ replace: true },

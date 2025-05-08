@@ -9,7 +9,7 @@ import { BorderCountries } from "./BorderCountries";
  */
 
 export function CountryDetails({
-	name: { common, nativeName },
+	name: { common, official, nativeName },
 	region,
 	subregion,
 	capital,
@@ -59,6 +59,10 @@ export function CountryDetails({
 					alt={flags.alt || `${common} flag`}
 				/>
 				<div className="flex flex-col gap-2 tracking-wide lg:gap-4">
+					<p>
+						Official Name:{" "}
+						<span className="font-normal dark:font-extralight">{official}</span>
+					</p>
 					<p>
 						{Object.keys(nativeName).length > 1
 							? "Native Names"
@@ -151,6 +155,7 @@ export function CountryDetails({
 
 CountryDetails.propTypes = {
 	name: PropType.shape({
+		official: PropType.string,
 		common: PropType.string,
 		nativeName: PropType.object,
 	}).isRequired,

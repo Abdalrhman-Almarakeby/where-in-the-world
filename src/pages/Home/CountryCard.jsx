@@ -32,14 +32,14 @@ export function CountryCard({
 				>
 					{name.common}
 				</h2>
-				<p className="font-semibold" id="country-population">
+				<p className="font-semibold">
 					Population:{" "}
 					<span className="font-normal">{population.toLocaleString()}</span>
 				</p>
-				<p className="font-semibold" id="country-region">
+				<p className="font-semibold">
 					Region: <span className="font-normal">{region}</span>
 				</p>
-				<p className="font-semibold" id="country-capital">
+				<p className="font-semibold">
 					Capital:{" "}
 					<span className="font-normal">
 						{name.common === "Palestine"

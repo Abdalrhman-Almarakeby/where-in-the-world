@@ -10,7 +10,7 @@ export default defineConfig({
 		open: true,
 	},
 	preview: {
-		port: 300,
+		port: 3000,
 		open: true,
 	},
 	resolve: {

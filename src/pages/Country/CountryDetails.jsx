@@ -113,7 +113,7 @@ export function CountryDetails({
 						palestineCapital
 					) : (
 						<p>
-							{Object.keys(capital).length > 1 ? "Capitals" : "Capital"}:{" "}
+							{capital.length > 1 ? "Capitals" : "Capital"}:{" "}
 							<span className="font-normal dark:font-extralight">
 								{capital.join(", ")}
 							</span>

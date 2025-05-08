@@ -3,14 +3,7 @@ import PropType from "prop-types";
 import { BorderCountries } from "./BorderCountries";
 
 /**
- * Displays detailed information about a specific country, including:
- * - Flag, name, native name(s), population, region, subregion, capital(s)
- * - Currencies, languages, top-level domains, and links to Wikipedia & Google Maps
- * - Optionally renders border countries via the `BorderCountries` component
- *
- * Special handling is applied for Palestine:
- * - If the country is Palestine, Jerusalem is shown as capital
- * - Border countries are adjusted (e.g., removing PSE, adding SYR and LBN)
+ * Displays detailed information about a specific country.
  *
  * @param {{
  *   name: { common: string, nativeName: Record<string, any> },

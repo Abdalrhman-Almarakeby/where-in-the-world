@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router";
 
 /**
- * Displays a card with basic information about a country
+ * Displays a card with basic information about a country.
  *
  * @param {{
  *   name: { common: string },

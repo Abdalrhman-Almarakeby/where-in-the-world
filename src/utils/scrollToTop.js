@@ -1,4 +1,4 @@
-export function scrollToTop() {
+export function scrollToTop(behavior) {
 	const preferReducedMotion = window.matchMedia(
 		"(prefers-reduced-motion)",
 	).matches;
@@ -6,6 +6,6 @@ export function scrollToTop() {
 	window.scrollTo({
 		top: 0,
 		left: 0,
-		behavior: preferReducedMotion ? "instant" : "smooth",
+		behavior: behavior || preferReducedMotion ? "instant" : "smooth",
 	});
 }

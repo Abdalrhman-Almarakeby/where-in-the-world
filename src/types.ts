@@ -13,7 +13,7 @@ export type Country = {
 	currencies: {
 		[key: string]: {
 			name: string;
-			// symbol: string;
+			symbol: string;
 		};
 	};
 	capital?: string[];

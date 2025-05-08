@@ -115,7 +115,7 @@ export function CountryDetails({
 						{Object.keys(currencies).length > 1 ? "Currencies" : "Currency"}:{" "}
 						<span className="font-normal dark:font-extralight">
 							{Object.values(currencies)
-								.map((currency) => currency.name)
+								.map((currency) => `${currency.name} (${currency.symbol})`)
 								.join(", ")}
 						</span>
 					</p>

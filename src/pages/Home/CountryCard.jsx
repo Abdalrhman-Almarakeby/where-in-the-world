@@ -6,14 +6,7 @@ import { Link } from "react-router";
 /**
  * Displays a card with basic information about a country.
  *
- * @param {{
- *   name: { common: string },
- *   flags: { alt?: string },
- *   population: number,
- *   region: string,
- *   capital?: string[],
- *   cca2: string
- * }} props - Country data used to render the card.
+ * @param {import("@/types").CountrySummary} props - Country data used to render the card.
  */
 export function CountryCard({
 	name: { common: name },

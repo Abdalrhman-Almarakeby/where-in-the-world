@@ -1,4 +1,4 @@
-import { scrollToTop } from "@/utils/scrollToTop";
+import { scrollToTop } from "@/lib/scrollToTop";
 import PropTypes from "prop-types";
 
 export function Pagination({ nPages, currentPage, setSearchParams }) {

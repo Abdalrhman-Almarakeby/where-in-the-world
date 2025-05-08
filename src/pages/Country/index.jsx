@@ -1,7 +1,7 @@
 import { Loading } from "@/components/Loading";
 import { useCountry } from "@/hooks/useCountry.js";
+import { scrollToTop } from "@/lib/scrollToTop.js";
 import { countriesCode } from "@/utils/countriesCode.js";
-import { scrollToTop } from "@/utils/scrollToTop";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { ErrorPage } from "../Error.jsx";

@@ -1,6 +1,5 @@
+import { API_URL } from "@/constant";
 import { useQuery } from "@tanstack/react-query";
-
-const API_URL = "https://restcountries.com/v3.1";
 
 export function useCountries({ region, search }) {
 	return useQuery({

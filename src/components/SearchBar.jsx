@@ -1,3 +1,4 @@
+import { REGIONS } from "@/constant";
 import { Search } from "lucide-react";
 import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";
@@ -11,7 +12,6 @@ import { useEffect, useRef } from "react";
  * }} props
  */
 export function SearchBar({ searchParams, setSearchParams }) {
-	const REGIONS = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 	/** @type {React.RefObject<HTMLInputElement | null>} */
 	const searchRef = useRef(null);
 

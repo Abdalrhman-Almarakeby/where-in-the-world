@@ -7,8 +7,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"format": "pnpm biome format --write .",
-		"lint": "pnpm biome lint --write .",
-		"check": "pnpm biome check --write .",
+		"lint": "pnpm biome check --write .",
 		"preview": "vite preview"
 	},
 	"dependencies": {

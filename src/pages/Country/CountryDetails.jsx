@@ -1,8 +1,3 @@
-import {
-	formatCurrencies,
-	formatLanguages,
-	formatNativeName,
-} from "@/utils/formatObjectValues";
 import * as countries from "country-flag-icons/react/3x2";
 import PropType from "prop-types";
 import { BorderCountries } from "./BorderCountries";
@@ -90,7 +85,9 @@ export function CountryDetails({
 							: "Native Name"}
 						:{" "}
 						<span className="font-normal dark:font-extralight">
-							{formatNativeName(name.nativeName)}
+							{Object.values(name.nativeName)
+								.map((name) => name.common)
+								.join(", ")}
 						</span>
 					</p>
 					<p>
@@ -133,13 +130,15 @@ export function CountryDetails({
 					<p>
 						{Object.keys(currencies).length > 1 ? "Currencies" : "Currency"}:{" "}
 						<span className="font-normal dark:font-extralight">
-							{formatCurrencies(currencies)}
+							{Object.values(currencies)
+								.map((currency) => currency.name)
+								.join(", ")}
 						</span>
 					</p>
 					<p>
 						{Object.keys(languages).length > 1 ? "Languages" : "Language"}:{" "}
 						<span className="font-normal dark:font-extralight">
-							{formatLanguages(languages)}
+							{Object.values(languages).join(", ")}
 						</span>{" "}
 					</p>
 

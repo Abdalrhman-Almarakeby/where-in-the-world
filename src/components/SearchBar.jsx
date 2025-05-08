@@ -1,4 +1,4 @@
-import { REGIONS } from "@/constant";
+import { REGIONS } from "@/lib/constant";
 import { Search } from "lucide-react";
 import PropTypes from "prop-types";
 import { useEffect, useRef } from "react";

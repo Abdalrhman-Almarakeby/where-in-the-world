@@ -1,4 +1,4 @@
-import { API_URL } from "@/constant";
+import { API_URL } from "@/lib/constant";
 import { useQuery } from "@tanstack/react-query";
 
 /**

@@ -4,14 +4,11 @@ import { useQuery } from "@tanstack/react-query";
 /**
  * Custom hook to fetch a list of countries.
  *
- * @param {Object} params - Parameters for filtering countries.
- * @param {string} [params.region] - Optional region to filter countries by.
- * @param {string} [params.search] - Optional search term to filter countries.
  * @returns {import('@tanstack/react-query').UseQueryResult<import("@/types").CountrySummary[], Error>} - React Query result containing the countries data.
  */
-export function useCountries({ region, search }) {
+export function useCountries() {
 	return useQuery({
-		queryKey: ["countries", { region, search }],
+		queryKey: ["countries"],
 		queryFn: async () => {
 			const endpoint = `${API_URL}/all?fields=name,capital,flags,region,population,cca2`;
 

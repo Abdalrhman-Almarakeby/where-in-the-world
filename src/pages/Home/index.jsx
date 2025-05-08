@@ -15,10 +15,7 @@ export function Home() {
 		page: "1",
 	});
 
-	const { data, isLoading, error } = useCountries({
-		region: searchParams.get("region"),
-		search: searchParams.get("searchTerm"),
-	});
+	const { data, isLoading, error } = useCountries();
 
 	const [countriesPerPage, setCountriesPerPage] = useState(10);
 

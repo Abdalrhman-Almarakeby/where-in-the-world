@@ -6,9 +6,9 @@ import { useEffect, useRef } from "react";
 /**
  * SearchBar component for filtering and searching countries.
  *
- * @param { Object } props
- * @param { URLSearchParams } props.searchParams
- * @param { import("react-router").SetURLSearchParams } props.setSearchParams
+ * @param {Object} props
+ * @param {URLSearchParams} props.searchParams
+ * @param {import("react-router").SetURLSearchParams} props.setSearchParams
  */
 export function SearchBar({ searchParams, setSearchParams }) {
 	/** @type {React.RefObject<HTMLInputElement | null>} */

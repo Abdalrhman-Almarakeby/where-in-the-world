@@ -1,6 +1,4 @@
-import { Country } from "@/pages/Country";
 import { ErrorPage } from "@/pages/Error";
-import { Home } from "@/pages/Home";
 import { Layout } from "@/pages/Layout";
 import { createBrowserRouter } from "react-router";
 
@@ -12,11 +10,17 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <Home />,
+				lazy: async () => {
+					const { Home } = await import("@/pages/Home");
+					return { Component: Home };
+				},
 			},
 			{
 				path: "country/:name",
-				element: <Country />,
+				lazy: async () => {
+					const { Country } = await import("@/pages/Country");
+					return { Component: Country };
+				},
 			},
 		],
 	},

@@ -1,10 +1,10 @@
 import { Loading } from "@/components/Loading";
-import { useCountry } from "@/hooks/useCountry.js";
-import { scrollToTop } from "@/lib/scrollToTop.js";
-import { countriesCode } from "@/utils/countriesCode.js";
+import { useCountry } from "@/hooks/useCountry";
+import { scrollToTop } from "@/lib/scrollToTop";
+import { ErrorPage } from "@/pages/Error";
+import { countriesCode } from "@/utils/countriesCode";
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import { ErrorPage } from "../Error.jsx";
 import { BackBtn } from "./BackBtn";
 import { CountryDetails } from "./CountryDetails";
 

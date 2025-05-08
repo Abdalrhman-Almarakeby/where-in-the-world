@@ -1,4 +1,4 @@
-import { Footer } from "@/components/Footer.jsx";
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Outlet } from "react-router";
 

@@ -3,11 +3,11 @@ import { LoaderCircle } from "lucide-react";
 export function Loading() {
 	return (
 		<div
-			className="flex items-center justify-center pt-20"
+			className="flex items-center justify-center grow"
 			aria-live="polite"
 			aria-label="Loading"
 		>
-			<LoaderCircle className="h-24 w-24 animate-spin" />
+			<LoaderCircle className="size-24 animate-spin" />
 		</div>
 	);
 }

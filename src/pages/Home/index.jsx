@@ -61,7 +61,7 @@ export function Home() {
 	const { currentCountries, currentPage, nPages } = getCountriesData(data);
 
 	return (
-		<main className="grow bg-light-gray px-5 py-10 text-dark-blue dark:bg-dark-blue dark:text-white">
+		<main className="grow flex flex-col bg-light-gray px-5 py-10 text-dark-blue dark:bg-dark-blue dark:text-white">
 			{isLoading ? (
 				<Loading />
 			) : (

@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 
 export function Layout() {
 	return (
-		<div className="flex min-h-[100svh] flex-col">
+		<div className="flex min-h-[100svh] flex-col dark:bg-dark-blue">
 			<Header />
 			<Outlet />
 			<Footer />

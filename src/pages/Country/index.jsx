@@ -18,17 +18,15 @@ export function Country() {
 	}, [name]);
 
 	return countriesCode[name] ? (
-		<main className="flex grow flex-col px-6 py-10 text-dark-blue dark:text-white dark:bg-dark-blue">
-			<div className="container">
-				{isLoading && <Loading />}
-				{error && <div>{error.message}</div>}
-				{data && (
-					<>
-						<BackBtn />
-						<CountryDetails {...data} />
-					</>
-				)}
-			</div>
+		<main className="container flex grow flex-col px-6 py-10 text-dark-blue dark:text-white">
+			{isLoading && <Loading />}
+			{error && <div>{error.message}</div>}
+			{data && (
+				<>
+					<BackBtn />
+					<CountryDetails {...data} />
+				</>
+			)}
 		</main>
 	) : (
 		<ErrorPage />

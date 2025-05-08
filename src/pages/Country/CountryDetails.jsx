@@ -5,20 +5,7 @@ import { BorderCountries } from "./BorderCountries";
 /**
  * Displays detailed information about a specific country.
  *
- * @param {{
- *   name: { common: string, nativeName: Record<string, any> },
- *   region: string,
- *   subregion: string,
- *   capital: string[],
- *   population: number,
- *   currencies: Record<string, any>,
- *   languages: Record<string, any>,
- *   tld?: string[],
- *   borders?: string[],
- *   flags: { alt?: string },
- *   maps: { googleMaps: string, openStreetMaps: string },
- *   cca2: string
- * }} props - Country data used to render the details.
+ * @param {import("@/types").Country} props - Country data used to render the details.
  */
 
 export function CountryDetails({

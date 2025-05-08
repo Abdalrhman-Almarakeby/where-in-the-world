@@ -12,9 +12,13 @@ export function Home() {
 	const [searchParams, setSearchParams] = useSearchParams({
 		region: "All",
 		searchTerm: "",
-		page: 1,
+		page: "1",
 	});
-	const { data, isLoading, error } = useCountries(searchParams);
+
+	const { data, isLoading, error } = useCountries({
+		region: searchParams.get("region"),
+		search: searchParams.get("searchTerm"),
+	});
 
 	const [countriesPerPage, setCountriesPerPage] = useState(10);
 

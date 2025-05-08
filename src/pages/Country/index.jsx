@@ -17,7 +17,6 @@ export function Country() {
 		scrollToTop();
 	}, [name]);
 
-	// @ts-expect-error
 	return countriesCode[name] ? (
 		<main className="flex grow flex-col px-6 py-10 dark:bg-dark-blue">
 			<div className="container">
@@ -28,7 +27,6 @@ export function Country() {
 				{data && (
 					<>
 						<BackBtn />
-						{/* @ts-expect-error */}
 						<CountryDetails {...data} />
 					</>
 				)}

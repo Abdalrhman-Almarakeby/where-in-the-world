@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 
-export function ErrorPage() {
+export function NotFound() {
 	return (
-		<section className="flex grow flex-col items-center justify-center gap-8 dark:bg-dark-blue dark:text-white">
+		<section className="px-5 flex grow flex-col items-center justify-center gap-8 dark:bg-dark-blue dark:text-white">
 			<h1 className="text-center text-5xl font-extrabold">Error 404</h1>
 			<p className="text-center text-2xl font-semibold">
 				Sorry, we couldn&apos;t find the page you were looking for.

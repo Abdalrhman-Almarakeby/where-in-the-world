@@ -15,7 +15,7 @@ export function Home() {
 		page: "1",
 	});
 
-	const { data, isLoading, error } = useCountries();
+	const { data } = useCountries();
 
 	const [countriesPerPage, setCountriesPerPage] = useState(10);
 
@@ -59,7 +59,7 @@ export function Home() {
 
 	return (
 		<main className="grow flex flex-col bg-light-gray px-5 py-10 text-dark-blue dark:bg-dark-blue dark:text-white">
-			{isLoading ? (
+			{!data ? (
 				<Loading />
 			) : (
 				<div className="container">
@@ -67,11 +67,7 @@ export function Home() {
 						searchParams={searchParams}
 						setSearchParams={setSearchParams}
 					/>
-					{error && (
-						<div className="text-dark-blue dark:text-white">
-							{error.message}
-						</div>
-					)}
+
 					{currentCountries &&
 						(currentCountries.length ? (
 							<section id="cards-container">
@@ -84,7 +80,7 @@ export function Home() {
 						))}
 				</div>
 			)}
-			{!isLoading && nPages > 1 && (
+			{data && nPages > 1 && (
 				<Pagination
 					nPages={nPages}
 					currentPage={currentPage}

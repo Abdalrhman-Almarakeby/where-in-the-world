@@ -60,7 +60,6 @@ export function CountryDetails({
 		borders = [...borders, "SYR", "LBN"];
 	}
 
-	// @ts-expect-error
 	const Flag = countries[cca2];
 
 	return (

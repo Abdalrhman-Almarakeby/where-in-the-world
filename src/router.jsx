@@ -1,24 +1,13 @@
-import { Footer } from "@/components/Footer.jsx";
-import { Header } from "@/components/Header";
-import { Country } from "@/pages/Country/index";
+import { Country } from "@/pages/Country";
 import { ErrorPage } from "@/pages/Error";
-import { Home } from "@/pages/Home/index";
-import { Outlet, createBrowserRouter } from "react-router";
-
-const Root = () => {
-	return (
-		<div className="flex min-h-[100svh] flex-col">
-			<Header />
-			<Outlet />
-			<Footer />
-		</div>
-	);
-};
+import { Home } from "@/pages/Home";
+import { Layout } from "@/pages/Layout";
+import { createBrowserRouter } from "react-router";
 
 export const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Root />,
+		element: <Layout />,
 		errorElement: <ErrorPage />,
 		children: [
 			{

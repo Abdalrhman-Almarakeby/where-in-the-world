@@ -22,14 +22,14 @@ import { BorderCountries } from "./BorderCountries";
  *   languages: Record<string, any>,
  *   tld?: string[],
  *   borders?: string[],
- *   flags: { svg: string, alt?: string },
+ *   flags: { alt?: string },
  *   maps: { googleMaps: string, openStreetMaps: string },
  *   cca2: string
  * }} props - Country data used to render the details.
  */
 
 export function CountryDetails({
-	name,
+	name: { common, nativeName },
 	region,
 	subregion,
 	capital,
@@ -43,14 +43,14 @@ export function CountryDetails({
 	cca2,
 }) {
 	const palestineCapital =
-		name.common === "Palestine" ? (
+		common === "Palestine" ? (
 			<p>
 				Capital:{" "}
 				<span className="font-normal dark:font-extralight">Jerusalem</span>
 			</p>
 		) : null;
 
-	if (name.common === "Palestine" && borders) {
+	if (common === "Palestine" && borders) {
 		borders = borders.filter((border) => border !== "PSE");
 		borders = [...borders, "SYR", "LBN"];
 	}
@@ -60,35 +60,33 @@ export function CountryDetails({
 	return (
 		<main className="grid grid-cols-1 gap-10 lg:gap-16 lg:px-3 lg:pb-14 lg:pt-20 xl:grid-cols-2 xl:gap-x-24 xl:gap-y-14 xl:px-6">
 			<h3 className="hidden text-5xl font-bold text-dark-blue dark:text-white lg:block xl:hidden">
-				{name.common}
+				{common}
 			</h3>
 			<div className="py-14 sm:px-16 md:px-40 lg:hidden lg:self-center lg:p-6 xl:block xl:self-start xl:p-0 2xl:row-span-2">
 				<Flag
 					role="img"
 					className="shadow-1 dark:shadow-none"
-					aria-label={flags.alt || `${name.common} flag`}
+					aria-label={flags.alt || `${common} flag`}
 				/>
 			</div>
 			<section className="grid gap-8 font-extrabold capitalize text-dark-blue dark:font-semibold dark:text-white sm:gap-10 sm:text-lg md:grid-cols-2 lg:grid-cols-3 lg:items-start lg:gap-16 lg:text-base xl:grid-cols-2 xl:gap-10 xl:text-lg">
 				<h3 className="text-[2.5rem] font-bold sm:text-5xl md:col-span-2 lg:hidden xl:block">
-					{name.common}
+					{common}
 				</h3>
 				<Flag
 					role="img"
 					className="hidden shadow-1 dark:shadow-none lg:block xl:hidden"
-					alt={flags.alt || `${name.common} flag`}
+					alt={flags.alt || `${common} flag`}
 				/>
 				<div className="flex flex-col gap-2 tracking-wide lg:gap-4">
 					<p>
-						{Object.keys(name.nativeName).length > 1
+						{Object.keys(nativeName).length > 1
 							? "Native Names"
 							: "Native Name"}
 						:{" "}
 						<span className="font-normal dark:font-extralight">
 							{Array.from(
-								new Set(
-									Object.values(name.nativeName).map((name) => name.common),
-								),
+								new Set(Object.values(nativeName).map((name) => common)),
 							).join(", ")}
 						</span>
 					</p>
@@ -146,10 +144,10 @@ export function CountryDetails({
 
 					<a
 						className="rounded-sm font-normal underline outline-offset-8 focus-visible:outline-2 focus-visible:outline-dark-blue dark:focus-visible:outline-white"
-						href={`https://en.wikipedia.org/wiki/${name.common.split(" ").join("_")}`}
+						href={`https://en.wikipedia.org/wiki/${common.split(" ").join("_")}`}
 						target="_blank"
 						rel="noopener noreferrer"
-						aria-label={`Read more about ${name.common} on Wikipedia`}
+						aria-label={`Read more about ${common} on Wikipedia`}
 					>
 						Read more in Wikipedia
 					</a>
@@ -158,9 +156,9 @@ export function CountryDetails({
 						href={maps.googleMaps}
 						target="_blank"
 						rel="noopener noreferrer"
-						aria-label={`View ${name.common} on Google Maps`}
+						aria-label={`View ${common} on Google Maps`}
 					>
-						View {name.common} on Google Maps
+						View {common} on Google Maps
 					</a>
 				</div>
 			</section>
@@ -185,7 +183,6 @@ CountryDetails.propTypes = {
 	tld: PropType.arrayOf(PropType.string),
 	borders: PropType.arrayOf(PropType.string),
 	flags: PropType.shape({
-		svg: PropType.string.isRequired,
 		alt: PropType.string,
 	}).isRequired,
 	maps: PropType.shape({

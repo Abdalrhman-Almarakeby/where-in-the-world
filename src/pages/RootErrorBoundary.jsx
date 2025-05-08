@@ -8,7 +8,13 @@ export function RootErrorBoundary() {
 	const error = useRouteError();
 
 	if (isRouteErrorResponse(error) && error.status === 404) {
-		return <NotFound />;
+		return (
+			<div className="flex min-h-[100svh] flex-col dark:bg-dark-blue">
+				<Header />
+				<NotFound />
+				<Footer />
+			</div>
+		);
 	}
 
 	return (

@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
  * @param {Object} params - Parameters for filtering countries.
  * @param {string} [params.region] - Optional region to filter countries by.
  * @param {string} [params.search] - Optional search term to filter countries.
- * @returns {import('@tanstack/react-query').UseQueryResult<Object[], Error>} - React Query result containing the countries data.
+ * @returns {import('@tanstack/react-query').UseQueryResult<import("@/types").CountrySummary[], Error>} - React Query result containing the countries data.
  */
 export function useCountries({ region, search }) {
 	return useQuery({

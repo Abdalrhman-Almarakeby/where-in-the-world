@@ -22,7 +22,7 @@ export function Header() {
 					role="switch"
 					aria-checked={enabled}
 					onClick={() => setDarkMode((prev) => !prev)}
-					className="flex cursor-pointer items-center gap-1 rounded-sm text-xs outline-hidden outline-offset-8 focus-visible:outline focus-visible:outline-dark-blue dark:focus-visible:outline-white md:gap-3 md:text-sm"
+					className="flex cursor-pointer items-center gap-1 rounded-sm text-xs outline-offset-8 focus-visible:outline focus-visible:outline-dark-blue dark:focus-visible:outline-white md:gap-3 md:text-sm"
 				>
 					{enabled ? <Sun /> : <Moon />}
 					<span>{enabled ? "Light Mode" : "Dark Mode"}</span>

@@ -8,7 +8,7 @@ export function BackBtn() {
 		<button
 			type="button"
 			onClick={() => navigate(-1)}
-			className="flex w-fit items-center gap-4 rounded-sm px-4 py-2 text-sm text-dark-blue shadow-lg focus-visible:outline focus-visible:outline-dark-blue dark:bg-blue dark:text-white dark:focus-visible:outline-white sm:px-6"
+			className="flex w-fit items-center gap-4 rounded-sm px-4 py-2 text-sm text-dark-blue shadow-lg focus-visible:outline-2 focus-visible:outline-dark-blue dark:bg-blue dark:text-white dark:focus-visible:outline-white sm:px-6"
 			aria-label="Go back"
 		>
 			<ArrowLeft className="size-4" aria-hidden="true" />

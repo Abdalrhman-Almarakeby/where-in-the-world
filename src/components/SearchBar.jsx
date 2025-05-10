@@ -60,7 +60,7 @@ export function SearchBar({ searchParams, setSearchParams }) {
 			<div
 				onClick={focusOnSearch}
 				onKeyDown={focusOnSearch}
-				className="flex w-96 max-w-full cursor-text items-center justify-start gap-2 rounded-sm bg-white px-4 py-2 shadow-lg transition-[outline] focus-within:outline dark:bg-blue dark:text-white sm:px-6 sm:py-4"
+				className="flex w-96 max-w-full cursor-text items-center justify-start gap-2 rounded-sm bg-white px-4 py-2 shadow-lg focus-within:outline-2 dark:bg-blue dark:text-white sm:px-6 sm:py-4"
 			>
 				<label htmlFor="search-input">
 					<Search className="w-5 cursor-text text-dark-gray" />
@@ -75,7 +75,7 @@ export function SearchBar({ searchParams, setSearchParams }) {
 					id="search-input"
 					placeholder="Search for a country..."
 					aria-label="Search input"
-					className="max-w-full grow bg-inherit font-semibold outline-hidden"
+					className="max-w-full grow bg-inherit font-semibold outline-none"
 				/>
 			</div>
 			<div className="flex items-center justify-between w-full gap-5 md:w-auto">
@@ -89,7 +89,7 @@ export function SearchBar({ searchParams, setSearchParams }) {
 						onChange={handleChange}
 						name="region"
 						aria-label="Region filter"
-						className="appearance-none rounded-md bg-white px-4 py-2 pr-8 text-base font-semibold shadow-md outline-none transition-all hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-dark-blue dark:bg-blue dark:text-white dark:hover:bg-opacity-90 dark:focus-visible:ring-white"
+						className="appearance-none rounded-sm bg-white px-4 py-2 pr-8 text-base font-semibold shadow-md outline-none hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-dark-blue dark:bg-blue dark:text-white dark:hover:bg-opacity-90 dark:focus-visible:ring-white"
 					>
 						{REGIONS.map((region) => (
 							<option

@@ -11,7 +11,7 @@ export function Header() {
 				<Link
 					title="Go to home page"
 					to="/"
-					className="rounded-sm font-extrabold outline-offset-8 focus-visible:outline focus-visible:outline-dark-blue dark:focus-visible:outline-white sm:text-xl md:text-lg lg:text-xl xl:text-2xl"
+					className="rounded-sm font-extrabold outline-offset-8 focus-visible:outline-2 focus-visible:outline-dark-blue dark:focus-visible:outline-white sm:text-xl md:text-lg lg:text-xl xl:text-2xl"
 				>
 					<h1>Where in the world?</h1>
 				</Link>
@@ -22,7 +22,7 @@ export function Header() {
 					role="switch"
 					aria-checked={enabled}
 					onClick={() => setDarkMode((prev) => !prev)}
-					className="flex cursor-pointer items-center gap-1 rounded-sm text-xs outline-offset-8 focus-visible:outline focus-visible:outline-dark-blue dark:focus-visible:outline-white md:gap-3 md:text-sm"
+					className="flex cursor-pointer items-center gap-1 rounded-sm text-xs outline-offset-8 focus-visible:outline-2 focus-visible:outline-dark-blue dark:focus-visible:outline-white md:gap-3 md:text-sm"
 				>
 					{enabled ? <Sun /> : <Moon />}
 					<span>{enabled ? "Light Mode" : "Dark Mode"}</span>

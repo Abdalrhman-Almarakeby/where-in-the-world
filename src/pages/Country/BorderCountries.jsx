@@ -40,7 +40,7 @@ export function BorderCountries({ countries }) {
 					return (
 						<Link
 							to={`/country/${countryName}`}
-							className="rounded-sm px-5 py-1 text-sm capitalize shadow-xl focus-visible:outline focus-visible:outline-dark-blue dark:bg-blue dark:shadow-lg dark:focus-visible:outline-white sm:text-base"
+							className="rounded-sm px-5 py-1 text-sm capitalize shadow-xl focus-visible:outline-2 focus-visible:outline-dark-blue dark:bg-blue dark:shadow-lg dark:focus-visible:outline-white sm:text-base"
 							key={border}
 							title={`Go to ${fromKebabCase(countryName)} page`}
 							aria-label={`Go to ${fromKebabCase(countryName)} page`}

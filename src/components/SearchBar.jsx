@@ -59,9 +59,7 @@ export function SearchBar({ searchParams, setSearchParams }) {
 		<form className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
 			<div
 				onClick={focusOnSearch}
-				onKeyDown={(e) => e.key === "Enter" && focusOnSearch()}
-				role="button"
-				tabIndex={0}
+				onKeyDown={focusOnSearch}
 				className="flex w-96 max-w-full cursor-text items-center justify-start gap-2 rounded-sm bg-white px-4 py-2 shadow-lg transition-[outline] focus-within:outline dark:bg-blue dark:text-white sm:px-6 sm:py-4"
 			>
 				<label htmlFor="search-input">

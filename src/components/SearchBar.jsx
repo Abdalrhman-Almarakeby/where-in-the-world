@@ -80,7 +80,7 @@ export function SearchBar({ searchParams, setSearchParams }) {
 					className="max-w-full grow bg-inherit font-semibold outline-hidden"
 				/>
 			</div>
-			<div className="ml-5 flex items-center gap-5">
+			<div className="flex items-center justify-between w-full gap-5 md:w-auto">
 				<label htmlFor="region-filter" className="font-semibold">
 					Filter by Region
 				</label>

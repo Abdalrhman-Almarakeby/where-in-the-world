@@ -1,9 +1,4 @@
-/**
- *  A mapping of country names in kebab case to their ISO 3166-1 alpha-3 codes.
- *
- * @type {{[key: string]: string}}
- */
-export const countriesCode = {
+export const countriesCode = Object.freeze({
 	aruba: "ABW",
 	afghanistan: "AFG",
 	angola: "AGO",
@@ -253,4 +248,4 @@ export const countriesCode = {
 	"south-africa": "ZAF",
 	zambia: "ZMB",
 	zimbabwe: "ZWE",
-};
+});

@@ -1,12 +1,12 @@
-import { RootErrorBoundary } from "@/pages/RootErrorBoundary";
-import { RootLayout } from "@/pages/RootLayout";
+import { ErrorBoundary } from "@/pages/ErrorBoundary";
+import { Layout } from "@/pages/Layout";
 import { createBrowserRouter } from "react-router";
 
 export const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <RootLayout />,
-		errorElement: <RootErrorBoundary />,
+		element: <Layout />,
+		errorElement: <ErrorBoundary />,
 		children: [
 			{
 				index: true,

@@ -1,10 +1,10 @@
-import { Footer } from "@/components/Footer";
-import { GeneralError } from "@/components/GeneralError";
-import { Header } from "@/components/Header";
-import { NotFound } from "@/components/NotFound";
+import { GeneralError } from "@/components/Error/GeneralError";
+import { NotFound } from "@/components/Error/NotFound";
+import { Footer } from "@/components/Layout/Footer";
+import { Header } from "@/components/Layout/Header";
 import { isRouteErrorResponse, useRouteError } from "react-router";
 
-export function RootErrorBoundary() {
+export function ErrorBoundary() {
 	const error = useRouteError();
 
 	if (isRouteErrorResponse(error) && error.status === 404) {

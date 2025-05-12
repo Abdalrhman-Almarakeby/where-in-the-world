@@ -1,12 +1,12 @@
+import { CountryCard } from "@/components/Home/CountryCard";
+import { NoCountriesFound } from "@/components/Home/NoCountriesFound";
+import { Pagination } from "@/components/Home/Pagination";
+import { SearchBar } from "@/components/Home/SearchBar";
 import { Loading } from "@/components/Loading";
-import { SearchBar } from "@/components/SearchBar";
 import { useCountries } from "@/hooks/useCountries";
 import { filterCountries } from "@/utils/filterCountries";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
-import { CountryCard } from "./CountryCard";
-import { NoCountriesFound } from "./NoCountriesFound";
-import { Pagination } from "./Pagination";
 
 export function Home() {
 	const [searchParams, setSearchParams] = useSearchParams({

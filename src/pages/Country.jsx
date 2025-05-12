@@ -1,12 +1,12 @@
+import { BackBtn } from "@/components/Country/BackBtn";
+import { CountryDetails } from "@/components/Country/CountryDetails";
+import { NotFound } from "@/components/Error/NotFound";
 import { Loading } from "@/components/Loading";
-import { NotFound } from "@/components/NotFound";
 import { useCountry } from "@/hooks/useCountry";
 import { scrollToTop } from "@/lib/scrollToTop";
 import { countriesCode } from "@/utils/countriesCode";
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import { BackBtn } from "./BackBtn";
-import { CountryDetails } from "./CountryDetails";
 
 export function Country() {
 	const { name } = useParams();

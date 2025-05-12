@@ -1,90 +1,44 @@
-import { scrollToTop } from "@/lib/scrollToTop";
 import PropTypes from "prop-types";
+import { usePagination } from "./usePagination";
 
 export function Pagination({ nPages, currentPage, setSearchParams }) {
-	const pageNumbers = Array.from({ length: nPages }, (_, i) => i + 1);
+	const {
+		goToNextPage,
+		goToPrevPage,
+		getPaginationElements,
+		handlePageChange,
+	} = usePagination({ nPages, currentPage, setSearchParams });
 
-	function handlePageChange(page) {
-		scrollToTop();
-		setSearchParams(
-			(prev) => {
-				prev.set("page", page);
-				return prev;
-			},
-			{ replace: true },
-		);
-	}
+	const renderPaginationNumbers = () => {
+		const elements = getPaginationElements();
 
-	function getPaginationNumbers(numberOfPages) {
-		function addButton(number) {
+		return elements.map((element) => {
+			if (element.type === "ellipsis") {
+				return <li key={element.key}>...</li>;
+			}
+
 			return (
 				<li
-					key={number}
-					className={`font-bold dark:font-normal px-2 py-1 rounded ${
-						number === currentPage
-							? "bg-blue text-white  dark:bg-white font-extrabold  dark:text-very-dark-blue"
+					key={element.number}
+					className={`font-bold dark:font-normal px-2 py-1 cursor-pointer rounded ${
+						element.isActive
+							? "bg-blue text-white dark:bg-white font-extrabold dark:text-very-dark-blue"
 							: ""
 					}`}
 				>
 					<button
 						type="button"
 						role="link"
-						aria-label={`Go to page number ${number} of countries`}
-						onClick={() => handlePageChange(number)}
-						className=""
+						aria-label={`Go to page number ${element.number} of countries`}
+						onClick={() => handlePageChange(element.number)}
+						className="cursor-pointer"
 					>
-						{number}
+						{element.number}
 					</button>
 				</li>
 			);
-		}
-
-		function addDots(key) {
-			return <li key={key}>...</li>;
-		}
-
-		const numbers = [];
-		if (numberOfPages <= 6) {
-			for (let i = 1; i < numberOfPages; i++) {
-				numbers.push(addButton(i));
-			}
-		} else {
-			numbers.push(addButton(1));
-
-			if (currentPage > 3) numbers.push(addDots("A"));
-
-			if (currentPage === numberOfPages)
-				numbers.push(addButton(currentPage - 2));
-
-			if (currentPage > 2) numbers.push(addButton(currentPage - 1));
-
-			if (currentPage !== 1 && currentPage !== numberOfPages)
-				numbers.push(addButton(currentPage));
-
-			if (currentPage < numberOfPages - 1)
-				numbers.push(addButton(currentPage + 1));
-
-			if (currentPage === 1) numbers.push(addButton(currentPage + 2));
-
-			if (currentPage < numberOfPages - 2) numbers.push(addDots("B"));
-		}
-
-		numbers.push(addButton(numberOfPages));
-
-		return numbers;
-	}
-
-	function goToNextPage() {
-		if (currentPage !== nPages) {
-			handlePageChange(currentPage + 1);
-		}
-	}
-
-	function goToPrevPage() {
-		if (currentPage !== 1) {
-			handlePageChange(currentPage - 1);
-		}
-	}
+		});
+	};
 
 	return (
 		<nav
@@ -95,7 +49,7 @@ export function Pagination({ nPages, currentPage, setSearchParams }) {
 				type="button"
 				aria-label="Go to previous page of countries"
 				role="link"
-				className="rounded-sm px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-dark-gray disabled:font-light disabled:text-light-gray dark:font-bold"
+				className="rounded-sm px-2 py-1 cursor-pointer font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-dark-gray disabled:font-light disabled:text-light-gray dark:font-bold"
 				onClick={goToPrevPage}
 				disabled={currentPage === 1}
 				aria-disabled={currentPage === 1}
@@ -103,13 +57,13 @@ export function Pagination({ nPages, currentPage, setSearchParams }) {
 				Previous
 			</button>
 			<ul className="flex justify-center gap-2 text-dark-blue dark:text-white">
-				{getPaginationNumbers(pageNumbers.pop())}
+				{renderPaginationNumbers()}
 			</ul>
 			<button
 				type="button"
 				aria-label="Go to next page"
 				role="link"
-				className="rounded-sm px-2 py-1 font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-dark-gray disabled:font-light disabled:text-light-gray dark:font-bold"
+				className="rounded-sm px-2 py-1 cursor-pointer font-extrabold enabled:bg-blue enabled:text-white disabled:cursor-not-allowed disabled:bg-dark-gray disabled:font-light disabled:text-light-gray dark:font-bold"
 				onClick={goToNextPage}
 				disabled={currentPage === nPages}
 				aria-disabled={currentPage === nPages}

@@ -2,7 +2,7 @@ import { scrollToTop } from "@/lib/scrollToTop";
 import PropTypes from "prop-types";
 
 export function Pagination({ nPages, currentPage, setSearchParams }) {
-	const pageNumbers = [...Array(nPages + 1).keys()].slice(1);
+	const pageNumbers = Array.from({ length: nPages }, (_, i) => i + 1);
 
 	function handlePageChange(page) {
 		scrollToTop();

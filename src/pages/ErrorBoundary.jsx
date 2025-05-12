@@ -7,20 +7,14 @@ import { isRouteErrorResponse, useRouteError } from "react-router";
 export function ErrorBoundary() {
 	const error = useRouteError();
 
-	if (isRouteErrorResponse(error) && error.status === 404) {
-		return (
-			<div className="flex min-h-[100svh] flex-col dark:bg-dark-blue">
-				<Header />
-				<NotFound />
-				<Footer />
-			</div>
-		);
-	}
-
 	return (
 		<div className="flex min-h-[100svh] flex-col dark:bg-dark-blue">
 			<Header />
-			<GeneralError />
+			{isRouteErrorResponse(error) && error.status === 404 ? (
+				<NotFound />
+			) : (
+				<GeneralError />
+			)}
 			<Footer />
 		</div>
 	);

@@ -1,3 +1,4 @@
+import { filterBorders } from "@/utils/filterBorders";
 import * as countries from "country-flag-icons/react/3x2";
 import PropType from "prop-types";
 import { BorderCountries } from "./BorderCountries";
@@ -22,20 +23,8 @@ export function CountryDetails({
 	maps,
 	cca2,
 }) {
-	if (common === "Palestine") {
-		borders = borders.filter((border) => border !== "ISR");
-		borders = [...borders, "SYR", "LBN"];
-	}
-
-	if (borders.includes("ISR") && borders.includes("PSE")) {
-		borders = borders.filter((country) => country !== "ISR");
-	}
-
-	if (borders.includes("ISR")) {
-		borders[borders.indexOf("ISR")] = "PSE";
-	}
-
 	const Flag = countries[cca2];
+	borders = filterBorders(common, borders);
 
 	return (
 		<main className="grid grid-cols-1 gap-10 lg:gap-16 lg:px-3 lg:pb-14 lg:pt-20 xl:grid-cols-2 xl:gap-x-24 xl:gap-y-14 xl:px-6">

@@ -4,7 +4,7 @@ import { Pagination } from "@/components/Home/Pagination";
 import { SearchBar } from "@/components/Home/SearchBar";
 import { Loading } from "@/components/Loading";
 import { useCountries } from "@/hooks/useCountries";
-import { filterCountries } from "@/utils/filterCountries";
+import { getCountriesData } from "@/utils/filterCountries";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 
@@ -38,24 +38,11 @@ export function Home() {
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
-	// Get the data that will be shown (current countries , current page number , the number of all pages )
-	function getCountriesData(data) {
-		const countries = data ? filterCountries(data, searchParams) : null;
-		const currentPage = Number.parseInt(searchParams.get("page")) || 1;
-
-		const indexOfLastRecord = currentPage * countriesPerPage;
-		const indexOfFirstRecord = indexOfLastRecord - countriesPerPage;
-
-		const currentCountries = countries?.slice(
-			indexOfFirstRecord,
-			indexOfLastRecord,
-		);
-
-		const nPages = Math.ceil(countries?.length / countriesPerPage);
-		return { currentCountries, currentPage, nPages };
-	}
-
-	const { currentCountries, currentPage, nPages } = getCountriesData(data);
+	const { currentCountries, currentPage, nPages } = getCountriesData(
+		data,
+		searchParams,
+		countriesPerPage,
+	);
 
 	return (
 		<main className="grow flex flex-col bg-light-gray px-5 py-10 text-dark-blue dark:bg-dark-blue dark:text-white">

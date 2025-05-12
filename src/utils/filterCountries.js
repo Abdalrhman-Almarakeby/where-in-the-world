@@ -48,3 +48,27 @@ export function filterCountries(countries, searchParams) {
 
 	return filtered;
 }
+
+/**
+ * Get the data that will be shown (current countries , current page number , the number of all pages )
+ *
+ * @param {import("@/types").CountrySummary[]} data - The list of country objects to filter.
+ * @param {URLSearchParams} searchParams - The search parameters containing "region" and "searchTerm".
+ * @param {number} countriesPerPage - The number of countries to display per page.
+ * @returns {{ currentCountries: import("@/types").CountrySummary[] | null, currentPage: number, nPages: number }} - The filtered list of countries.
+ */
+export function getCountriesData(data, searchParams, countriesPerPage) {
+	const countries = data ? filterCountries(data, searchParams) : null;
+	const currentPage = Number.parseInt(searchParams.get("page")) || 1;
+
+	const indexOfLastRecord = currentPage * countriesPerPage;
+	const indexOfFirstRecord = indexOfLastRecord - countriesPerPage;
+
+	const currentCountries = countries?.slice(
+		indexOfFirstRecord,
+		indexOfLastRecord,
+	);
+
+	const nPages = Math.ceil(countries?.length / countriesPerPage);
+	return { currentCountries, currentPage, nPages };
+}

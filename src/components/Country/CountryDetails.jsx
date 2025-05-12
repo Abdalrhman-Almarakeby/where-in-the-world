@@ -22,14 +22,6 @@ export function CountryDetails({
 	maps,
 	cca2,
 }) {
-	const palestineCapital =
-		common === "Palestine" ? (
-			<p>
-				Capital:{" "}
-				<span className="font-normal dark:font-extralight">Jerusalem</span>
-			</p>
-		) : null;
-
 	if (common === "Palestine" && borders) {
 		borders = borders.filter((border) => border !== "PSE");
 		borders = [...borders, "SYR", "LBN"];
@@ -90,16 +82,12 @@ export function CountryDetails({
 							{subregion}
 						</span>
 					</p>
-					{palestineCapital ? (
-						palestineCapital
-					) : (
-						<p>
-							{capital.length > 1 ? "Capitals" : "Capital"}:{" "}
-							<span className="font-normal dark:font-extralight">
-								{capital.join(", ")}
-							</span>
-						</p>
-					)}
+					<p>
+						{capital.length > 1 ? "Capitals" : "Capital"}:{" "}
+						<span className="font-normal dark:font-extralight">
+							{common === "Palestine" ? "Jerusalem" : capital.join(", ")}
+						</span>
+					</p>
 				</div>
 				<div className="flex flex-col gap-2 tracking-wide lg:gap-4">
 					{tld && (

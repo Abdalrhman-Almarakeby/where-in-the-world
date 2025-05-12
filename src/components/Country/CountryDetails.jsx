@@ -22,9 +22,17 @@ export function CountryDetails({
 	maps,
 	cca2,
 }) {
-	if (common === "Palestine" && borders) {
-		borders = borders.filter((border) => border !== "PSE");
+	if (common === "Palestine") {
+		borders = borders.filter((border) => border !== "ISR");
 		borders = [...borders, "SYR", "LBN"];
+	}
+
+	if (borders.includes("ISR") && borders.includes("PSE")) {
+		borders = borders.filter((country) => country !== "ISR");
+	}
+
+	if (borders.includes("ISR")) {
+		borders[borders.indexOf("ISR")] = "PSE";
 	}
 
 	const Flag = countries[cca2];

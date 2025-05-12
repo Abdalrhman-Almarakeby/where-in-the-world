@@ -9,14 +9,6 @@ import { Link } from "react-router";
  * @param {{ countries: string[] }} props - An array of country codes representing border countries.
  */
 export function BorderCountries({ countries }) {
-	if (countries.includes("ISR") && countries.includes("PSE")) {
-		countries = countries.filter((country) => country !== "ISR");
-	}
-
-	if (countries.includes("ISR")) {
-		countries[countries.indexOf("ISR")] = "PSE";
-	}
-
 	return (
 		<nav
 			className="flex flex-col gap-4 capitalize text-dark-blue dark:font-semibold dark:text-white sm:gap-6 xl:col-span-2 2xl:col-span-1"

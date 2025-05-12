@@ -1,5 +1,5 @@
+import { usePagination } from "@/hooks/usePagination";
 import PropTypes from "prop-types";
-import { usePagination } from "./usePagination";
 
 export function Pagination({ nPages, currentPage, setSearchParams }) {
 	const {

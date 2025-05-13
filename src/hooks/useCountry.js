@@ -12,15 +12,15 @@ export function useCountry(countryName) {
 	return useQuery({
 		queryKey: ["country", countryName],
 		queryFn: async () => {
-			const res = await fetch(
+			const response = await fetch(
 				`${API_URL}/alpha/${countriesCode[countryName]}?fields=name,region,subregion,capital,population,currencies,languages,tld,borders,flags,maps,cca2`,
 			);
 
-			if (!res.ok) {
+			if (!response.ok) {
 				throw new Error("Country not found");
 			}
 
-			return await res.json();
+			return await response.json();
 		},
 	});
 }

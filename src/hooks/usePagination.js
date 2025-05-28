@@ -10,7 +10,7 @@ import { scrollToTop } from "@/lib/scrollToTop";
  */
 export function usePagination({ nPages, currentPage, setSearchParams }) {
 	// Generate array of page numbers
-	const pageNumbers = Array.from({ length: nPages }, (_, i) => i + 1);
+	const pageNumbers = [...Array(nPages)].map((_, i) => i + 1);
 
 	/**
 	 * Handles page change and updates URL params

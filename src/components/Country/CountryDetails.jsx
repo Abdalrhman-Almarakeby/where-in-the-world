@@ -59,7 +59,7 @@ export function CountryDetails({
 						:{" "}
 						<span className="font-normal dark:font-extralight">
 							{Array.from(
-								new Set(Object.values(nativeName).map((name) => common)),
+								new Set(Object.values(nativeName).map((name) => name.common)),
 							).join(", ")}
 						</span>
 					</p>
